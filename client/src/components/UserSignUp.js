@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import { GoogleLogin } from "react-google-login";
+import "../App.css";
 
 function UserSignUp() {
   const [signUpGoogleProfile, setSignUpGoogleProfile] = useState(null);
@@ -12,6 +11,7 @@ function UserSignUp() {
     signUpPhone: "",
     signUpAddress: "",
     signUpPassword: "",
+    signUpRole: "buyer", // Default role is set to buyer
     signInIdentifier: "",
     signInPassword: "",
   });
@@ -46,7 +46,7 @@ function UserSignUp() {
           phone: formData.signUpPhone,
           address: formData.signUpAddress,
           password: formData.signUpPassword,
-          role: "user", // Ensure the role is specified
+          role: formData.signUpRole, // Include the selected role in the request
         }),
       });
       if (response.ok) {
@@ -70,7 +70,6 @@ function UserSignUp() {
         },
         body: JSON.stringify({
           password: formData.signInPassword,
-          // Adapt to send the correct login identifier (username, email, or phone)
           [formData.signInIdentifier.includes('@') ? 'email' : 'phone']: formData.signInIdentifier,
         }),
       });
@@ -96,28 +95,7 @@ function UserSignUp() {
   };
 
   useEffect(() => {
-    const signUpButton = document.getElementById("signUp");
-    const signInButton = document.getElementById("signIn");
-    const container = document.getElementById("container");
-
-    signUpButton.addEventListener("click", () => {
-      container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener("click", () => {
-      container.classList.remove("right-panel-active");
-    });
-
-    // Cleanup function to remove event listeners
-    return () => {
-      signUpButton.removeEventListener("click", () => {
-        container.classList.add("right-panel-active");
-      });
-
-      signInButton.removeEventListener("click", () => {
-        container.classList.remove("right-panel-active");
-      });
-    };
+    // No need for event listeners in React
   }, []);
 
   return (
@@ -177,7 +155,21 @@ function UserSignUp() {
               name="signUpPassword"
               onChange={handleInputChange}
             />
-            <button type="submit">Sign Up</button>
+            <select
+              name="signUpRole"
+              value={formData.signUpRole}
+              onChange={handleInputChange}
+              className="mt-3 py-2 px-4 rounded-md border border-gray-300 focus:outline-none focus:border-indigo-500"
+            >
+              <option value="buyer">Buyer</option>
+              <option value="farmer">Farmer</option>
+            </select>
+            <button
+              type="submit"
+              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Sign Up
+            </button>
           </form>
         </div>
         <div className="form-container sign-in-container">
@@ -213,8 +205,12 @@ function UserSignUp() {
               name="signInPassword"
               onChange={handleInputChange}
             />
-            <a href="#">Forgot your password?</a>
-            <button type="submit">Sign In</button>
+            <button
+              type="submit"
+              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Sign In
+            </button>
           </form>
         </div>
         <div className="overlay-container">
@@ -222,14 +218,14 @@ function UserSignUp() {
             <div className="overlay-panel overlay-left">
               <h1>Welcome Back!</h1>
               <p>To keep connected with us please login with your personal info</p>
-              <button className="ghost" id="signIn">
+              <button className="ghost" id="signIn" onClick={() => document.getElementById("container").classList.remove("right-panel-active")}>
                 Sign In
               </button>
             </div>
             <div className="overlay-panel overlay-right">
               <h1>Hello, Friend!</h1>
               <p>Enter your personal details and start the journey with us</p>
-              <button className="ghost" id="signUp">
+              <button className="ghost" id="signUp" onClick={() => document.getElementById("container").classList.add("right-panel-active")}>
                 Sign Up
               </button>
             </div>
