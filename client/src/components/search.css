@@ -1,0 +1,123 @@
+
+  
+  #searchInput {
+    box-sizing: border-box;
+    padding: 10px 20px; /* Increase padding */
+    width: 40px;
+    background: none;
+    border: 3px solid #080808;
+    border-radius: 25px;
+    color: #000000; /* Change text color here */
+    font-size: 18px; /* Increase font size */
+    transition: width 0.5s ease-in-out;
+    opacity: 0.6; /* Set the opacity to 0.5 when hovering */
+    
+  }
+  
+  #searchIcon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 9px;
+    height: 3px;
+    border-radius: 2px;
+    background: #ffffff4f;
+    transform: rotate(45deg);
+    transition: 0.3s ease-in-out;
+  }
+  
+  #searchIcon::after {
+    position: absolute;
+    top: 0;
+    height: 0;
+    content: "";
+    width: 5px;
+    border-radius: 2px;
+    height: 3px;
+    background: #4d4b4b;
+    transform: rotate(0deg);
+    transition: 0.3s ease-in-out;
+  }
+  
+  #searchInput:focus {
+    outline: none;
+    width: 200px;
+  }
+  
+  #searchInput:focus + #searchIcon {
+    bottom: 9px;
+    right: 12px;
+    width: 14px;
+  }
+  
+  #searchInput:focus + #searchIcon::after {
+    width: 14px;
+    transform: rotate(-90deg);
+  }
+  
+  #searchBtn {
+    border: none;
+    background: rgb(33, 244, 251);
+    background: linear-gradient(
+      0deg,
+      rgb(33, 149, 251) 0%,
+      rgb(0, 255, 174) 100%
+    );
+    color: #fffffffe;
+    overflow: hidden;
+    position: relative; /* Add relative positioning for pseudo-element */
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: 20px;
+  }
+  
+  #searchBtn:hover {
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.7; /* Lower opacity on hover */
+  }
+  
+  #searchBtn:before {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+  }
+  
+  #searchBtn:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  /* @keyframes shiny-btn1 {
+    0% {
+      transform: scale(0) rotate(45deg);
+      opacity: 0;
+    }
+    80% {
+      transform: scale(0) rotate(45deg);
+      opacity: 0.5;
+    }
+    81% {
+      transform: scale(4) rotate(45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(50) rotate(45deg);
+      opacity: 0;
+    }
+  } */
+  #searchBtn:hover {
+    opacity: 0.4; /* Set the opacity to 0.5 when hovering */
+  }

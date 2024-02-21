@@ -24,7 +24,7 @@ function CustomerCard(props) {
   );
 }
 
-function FarnerProducts() {
+function FarmerDashboard() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [slides, setSlides] = useState([
@@ -220,5 +220,5 @@ function FarnerProducts() {
   );
 }
 
-export default FarnerProducts;
+export default FarmerDashboard;
 
