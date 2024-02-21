@@ -5,9 +5,11 @@
 }
 
 body {
-	background: url('https://cdn.discordapp.com/attachments/948596391855394826/1108360422790271006/login_page_bg.jpg') no-repeat center center fixed;
+	/* background: url('https://cdn.discordapp.com/attachments/948596391855394826/1108360422790271006/login_page_bg.jpg') no-repeat center center fixed;
 	background-size: cover;
-	display: flex;
+	display: flex; */
+	background-color: #204127;
+	background-color: #f7f8f7;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
