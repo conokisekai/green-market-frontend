@@ -7,6 +7,7 @@ import Chat from './components/Chat'; // Import the Chat component
 import Products from './components/Products';
 import Product from './components/Product';
 import FarmerDashboard from './components/FarmerDashboard';
+import FarmerProductForm from './components/FarmerProductForm';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/products" element={<Products/>}/>
           <Route path="/products/:product_id" element={<Product/>}/>
           <Route path = "/farmerdashboard" element={<FarmerDashboard/>} />
+          <Route path = "/farmerproductform" element={<FarmerProductForm/>} />
         </Routes>
       </Router>
     </div>

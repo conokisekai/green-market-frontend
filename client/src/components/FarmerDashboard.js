@@ -1,7 +1,8 @@
 
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect} from "react";
+import { FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa';
 import "./farmerDashboard.css";
-import { Link } from "react-router-dom";
+import { Link ,useParams} from "react-router-dom";
 // import  logo from "./"
 import SearchBar from "./SearchBar";
 
@@ -27,6 +28,10 @@ function CustomerCard(props) {
 function FarmerDashboard() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [productId, setProductId] = useState('');
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const { product_id } = useParams();
   const [slides, setSlides] = useState([
     {
       imageUrl:
@@ -55,11 +60,11 @@ function FarmerDashboard() {
     fetch("/get_all_products")
       .then((response) => response.json())
       .then((data) => {setProducts(data.products)
-     
+        setProductId(data.products[0].product_id)
       })
-
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
+
 
     const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
@@ -95,10 +100,28 @@ function FarmerDashboard() {
   };
 
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
+  const handleDeleteProduct = async (product_id) => {
+    try {
+      const response = await fetch(`/delete_product/${product_id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        setMessage(data.message);
+        // Update the products state after deletion if needed
+        setProducts((prevProducts) => prevProducts.filter((product) => product.product_id !== product_id));
+      } else {
+        setError(data.error || 'Something went wrong');
+      }
+    } catch (error) {
+      setError('An error occurred while communicating with the server');
+    }
   };
-
   return (
     <div>
       <input type="checkbox" id="mobilmenu" />
@@ -108,20 +131,15 @@ function FarmerDashboard() {
       </div>
         <div className="menufarmer">
           <ul className="flex">
-            <li className="mr-4">
-              <i className="fa-regular fa-heart"></i>
+          <li className="mr-4">
+              <FaHeart style={{ fontSize: '24px', color: '#00ff00' }} />
             </li>
-            <li className="facebook">
-              <i className="fas fa-watsup"></i>
-            </li>
+
             <li className="mr-4">
-              <i className="fa-solid fa-pipe"></i>
+              <FaShoppingCart style={{ fontSize: '24px', color: '#00ff00' }} />
             </li>
             <li className="mr-4">
-              <i className="fas fa-shopping-cart"></i>
-            </li>
-            <li className="mr-4">
-              <i className="fas fa-user"></i>
+              <FaUser style={{ fontSize: '24px', color: '#00ff00' }} />
             </li>
           </ul>
         </div>
@@ -190,7 +208,16 @@ function FarmerDashboard() {
           <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
           <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
           <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
-          {/* Add more CustomerCard components for additional customers */}
+          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
+          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
+          <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
+          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
+          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
+          <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
+          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
+          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
+
+        
         </div>
       </div>
     </div>
@@ -200,7 +227,8 @@ function FarmerDashboard() {
         <div className="ust"></div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
         {(searchTerm.trim() === "" ? products : filteredProducts).slice(0, 16).map((product) => (
-            <div className="box" key={product.product_id}>
+
+            <div className="boxfarmer" key={product.product_id}>
               <img
                 src={product.image_link}
                 alt={product.product_name}
@@ -208,17 +236,73 @@ function FarmerDashboard() {
                 className="object-cover rounded-md border border-gray-300 h-48 w-full"
               />
               <div className="des">
-                Description: {product.description}
-
+                Description: {product.description}<br/>
               </div>
+              <button className="btn-9"onClick={() => handleDeleteProduct(product.product_id)}>
+               Delete Product
+             </button>
             </div>
           ))}
         </div>
       </div>
     </div>
+    <div className="center">
+        <button className="btn-9">
+          <Link to="/farmerproductform" className="add">Add</Link>
+        </button>
+      </div>
     </div>
   );
 }
 
 export default FarmerDashboard;
 
+// import React, { useState } from 'react';
+
+// function App() {
+//   const [productId, setProductId] = useState('');
+//   const [message, setMessage] = useState('');
+//   const [error, setError] = useState('');
+
+//   const handleDeleteProduct = async () => {
+//     try {
+//       const response = await fetch(`/delete_product/${productId}`, {
+//         method: 'DELETE',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+
+//       const data = await response.json();
+
+//       if (response.ok) {
+//         setMessage(data.message);
+//       } else {
+//         setError(data.error || 'Something went wrong');
+//       }
+//     } catch (error) {
+//       setError('An error occurred while communicating with the server');
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <h1>Delete Product</h1>
+//       <div>
+//         <label htmlFor="productId">Product ID:</label>
+//         <input
+//           type="number"
+//           id="productId"
+//           value={productId}
+//           onChange={(e) => setProductId(e.target.value)}
+//         />
+//       </div>
+//       <button onClick={handleDeleteProduct}>Delete Product</button>
+
+//       {message && <p style={{ color: 'green' }}>{message}</p>}
+//       {error && <p style={{ color: 'red' }}>{error}</p>}
+//     </div>
+//   );
+// }
+
+// export default App;
