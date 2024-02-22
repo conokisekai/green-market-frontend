@@ -125,23 +125,6 @@ function UserSignUp({ setUserId }) {
         <div className="form-container sign-up-container">
           <form onSubmit={handleSignUpSubmit}>
             <h1>Create Account as User</h1>
-            <div className="social-container">
-              <GoogleLogin
-                clientId={googleClientId}
-                buttonText="Sign Up with Google"
-                onSuccess={handleSignUpGoogleSuccess}
-                onFailure={googleOnFailure}
-                cookiePolicy={"single_host_origin"}
-                className="google-login-btn"
-              />
-
-              {signUpGoogleProfile && (
-                <div>
-                  <h2>Google Profile</h2>
-                  <pre>{JSON.stringify(signUpGoogleProfile, null, 2)}</pre>
-                </div>
-              )}
-            </div>
             <span>or use your email for registration</span>
             <input
               type="text"
@@ -193,23 +176,6 @@ function UserSignUp({ setUserId }) {
         <div className="form-container sign-in-container">
           <form onSubmit={handleSignInSubmit}>
             <h1>Sign in as User</h1>
-            <div className="social-container">
-              <GoogleLogin
-                clientId={googleClientId}
-                buttonText="Sign In with Google"
-                onSuccess={handleSignInGoogleSuccess}
-                onFailure={googleOnFailure}
-                cookiePolicy={"single_host_origin"}
-                className="google-login-btn"
-              />
-
-              {signInGoogleProfile && (
-                <div>
-                  <h2>Google Profile</h2>
-                  <pre>{JSON.stringify(signInGoogleProfile, null, 2)}</pre>
-                </div>
-              )}
-            </div>
             <span>or use your account</span>
             <input
               type="text"
