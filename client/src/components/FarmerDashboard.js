@@ -25,7 +25,7 @@ function CustomerCard(props) {
   );
 }
 
-function FarmerDashboard() {
+function FarmerDashboard({userId}) {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [productId, setProductId] = useState('');
@@ -53,17 +53,28 @@ function FarmerDashboard() {
     },
   ]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const [products,setProducts]=useState([])
-  const [filteredProducts,setFilteredProducts]=useState([])
-
+  const [products,setProducts]=useState([]);
+  const [filteredProducts,setFilteredProducts]=useState([]);
+ 
   useEffect(() => {
-    fetch("/get_all_products")
-      .then((response) => response.json())
-      .then((data) => {setProducts(data.products)
-        setProductId(data.products[0].product_id)
+    fetch(`/get_product_user_id/${userId}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
       })
-      .catch((error) => console.error("Error fetching products:", error));
-  }, []);
+      .then((data) => {
+        setProducts(data.products);
+        console.log(data.product)
+        setProductId(data.products[0].product_id);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        setError("Failed to fetch products. Please try again.");
+      });
+       console.log(userId)
+  }, [userId]);
 
 
     const handleSearch = (searchTerm) => {

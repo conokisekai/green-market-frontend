@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import "../App.css";
 
-function UserSignUp() {
+function UserSignUp({ setUserId }) {
   const [signUpGoogleProfile, setSignUpGoogleProfile] = useState(null);
   const [signInGoogleProfile, setSignInGoogleProfile] = useState(null);
+  let navigate = useNavigate();
   const [formData, setFormData] = useState({
     signUpName: "",
     signUpEmail: "",
@@ -77,7 +79,23 @@ function UserSignUp() {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        console.log('Welcome to Agri-soko');
+
+        // Ensure that data.user_id is not undefined or null
+        if (data.user_id != null) {
+          setUserId(data.user_id);
+          console.log('Welcome to Agri-soko');
+          console.log(data.role);
+          console.log(data.user_id)
+
+          if (data.role === 'farmer') {
+            navigate(`/farmerdashboard`);
+            setUserId(data.user_id);
+          } else {
+            navigate(`/products`);
+          }
+        } else {
+          console.error("User ID is not defined in the response:", data);
+        }
       } else {
         console.error("Server Error:", response.statusText);
       }

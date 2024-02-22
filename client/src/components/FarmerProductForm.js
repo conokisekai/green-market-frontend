@@ -144,7 +144,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./farmerProductForm.css";
 
-function FarmerProductForm() {
+function FarmerProductForm({userId}) {
   const [product_name, setProduct_name] = useState("");
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState("");
@@ -153,7 +153,7 @@ function FarmerProductForm() {
   const [imageLinkType, setImageLinkType] = useState("link");
   const [image_link, setImage_link] = useState("");
   const [category_name, setCategory_name] = useState("");
-  const [user_id, setUser_id] = useState(null);
+  const [user_id, setUser_id] = useState(0);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -173,12 +173,12 @@ function FarmerProductForm() {
         description,
         image_link,
         category_name,
-        user_id,
+        user_id: userId,
       }),
     })
       .then((r) => {
         if (r.ok) {
-          navigate("/products");
+          navigate("/farmerdashboard");
         } else {
           throw new Error("Failed to register");
         }
@@ -337,8 +337,9 @@ function FarmerProductForm() {
                 type="number"
                 className="form-control transparent-input"
                 id="user_id"
-                onChange={(e) => setUser_id(e.target.value)}
-                placeholder="user_id"
+                value={userId}  // Display the userId from props
+                readOnly       // Make it read-only
+                required
               />
             </div>
 

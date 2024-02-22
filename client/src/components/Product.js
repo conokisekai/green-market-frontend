@@ -20,32 +20,37 @@ function Product({userId}) {
     }
   }, [product_id]);
 
-//   const handleAddToCart = () => {
-//     const data = {
-//       user_id: userId, // Replace with the actual user ID
-//       shoe_id: product.product_id,
-//     };
+  const handleAddToCart = () => {
+    console.log("Adding to cart...", userId, product.product_id);
+    const data = {
+      user_id: userId, // Replace with the actual user ID
+      product_id: product.product_id,
+    };
+    console.log("Data to be sent:", data);
 
-//     // Adjust the URL and parameters based on your backend
-//     fetch("/cart", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(data),
-//     })
-//       .then((res) => res.json())
-//       .then((result) => {
-//         console.log(result);
-//         setAddedToCart(true);
-//       })
-//       .catch((error) => console.error("Error adding to cart:", error));
-//   };
+    // Adjust the URL and parameters based on your backend
+    fetch("/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setAddedToCart(true);
+      })
+      .catch((error) => console.error("Error adding to cart:", error));
+  };
 
   return (
     <div className="product">
     <div className="boxProduct" key={product.product_id}>
-    <img src={product.image_link} alt={product.product_name} />
+    <img src={product.image_link}
+     alt={product.product_name}
+     className="object-cover rounded-md border border-gray-300 h-48 w-full"
+     />
       <div className="des">
       {product.product_name}<br/>
       {/* Out of stalk:{product.is_out_of_stock }<br/> */}
@@ -54,7 +59,7 @@ function Product({userId}) {
       Quantity:{product.quantity}<br/>
       Price:<b>Ksh {product.price}<br/></b>
       <div className="cta">
-        <button className="btn" >
+        <button className="btn" onClick={handleAddToCart}>
           Add to Cart <FaShoppingCart />
         </button>
     

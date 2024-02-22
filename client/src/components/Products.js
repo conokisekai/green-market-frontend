@@ -118,7 +118,7 @@ function Products() {
             </li>
 
             <li className="mr-4">
-              <FaShoppingCart style={{ fontSize: '24px', color: '#00ff00' }} />
+             <Link to="/cart" ><FaShoppingCart style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
             </li>
             <li className="mr-4">
               <FaUser style={{ fontSize: '24px', color: '#00ff00' }} />
