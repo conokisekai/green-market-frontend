@@ -145,10 +145,6 @@ function FarmerDashboard({userId}) {
           <li className="mr-4">
               <FaHeart style={{ fontSize: '24px', color: '#00ff00' }} />
             </li>
-
-            <li className="mr-4">
-              <FaShoppingCart style={{ fontSize: '24px', color: '#00ff00' }} />
-            </li>
             <li className="mr-4">
             <Link to="/userprofile"><FaUser style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
             </li>
@@ -196,17 +192,17 @@ function FarmerDashboard({userId}) {
         <div className="bg-navy text-white rounded-l-lg p-4">
           <div className={`sidebar ${isSidebarOpen ? "" : "small"}`}>
             <div className="text-6xl font-bold">Agri-Soko </div>
-            <Link to="/dashboard">Dashboard</Link><br/>
-            <Link to="/cart">My Orders</Link><br/>
+            <Link to="/products">Dashboard</Link><br/>
             <Link to="/explore">Explore</Link><br/>
             <Link to="/produce">Featured Products</Link><br/>
             Settings<br/>
             <Link to="/settings">Settings</Link><br/>
-            <Link to="/chat">Your Chats</Link><br/>
-            <Link to="/produce">Trends</Link><br/>
+            {/* <Link to="/chat">Your Chats</Link><br/> */}
+            {/* <Link to="/produce">Trends</Link><br/> */}
             <Link to="/contact">Contact</Link><br/>
             <Link to="/billing">Billing</Link><br/>
-            <Link to="/profile">My Profile</Link>
+            <Link to="/userprofile">My Profile</Link><br/>
+            <Link to="/farmerproductform" className="add">Add Product</Link>
           </div>
         </div>
         <div className="customers">
@@ -222,13 +218,6 @@ function FarmerDashboard({userId}) {
           <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
           <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
           <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
-
-        
         </div>
       </div>
     </div>
@@ -257,11 +246,6 @@ function FarmerDashboard({userId}) {
         </div>
       </div>
     </div>
-    <div className="center">
-        <button className="btn-9">
-          <Link to="/farmerproductform" className="add">Add</Link>
-        </button>
-      </div>
     </div>
   );
 }

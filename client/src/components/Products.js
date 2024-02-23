@@ -28,7 +28,7 @@ function CustomerCard(props) {
   );
 }
 
-function Products() {
+function Products({category}) {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [slides, setSlides] = useState([
@@ -169,17 +169,15 @@ function Products() {
         <div className="bg-navy text-white rounded-l-lg p-4">
           <div className={`sidebar ${isSidebarOpen ? "" : "small"}`}>
             <div className="text-6xl font-bold">Agri-Soko </div>
-            <Link to="/dashboard">Dashboard</Link><br/>
             <Link to="/cart">My Orders</Link><br/>
             <Link to="/explore">Explore</Link><br/>
             <Link to="/produce">Featured Products</Link><br/>
             Settings<br/>
             <Link to="/settings">Settings</Link><br/>
             <Link to="/chat">Your Chats</Link><br/>
-            <Link to="/produce">Trends</Link><br/>
             <Link to="/contact">Contact</Link><br/>
             <Link to="/billing">Billing</Link><br/>
-            <Link to="/profile">My Profile</Link>
+            <Link to="/userprofile">My Profile</Link>
           </div>
         </div>
         </div>
@@ -198,8 +196,6 @@ function Products() {
           <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
           <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
           <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
           {/* Add more CustomerCard components for additional customers */}
         </div>
       </div>

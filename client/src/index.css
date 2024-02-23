@@ -347,7 +347,7 @@ body {
   }
   
   .dark-mode {
-	background-color: #333; /* Change this to your preferred dark mode background color */
+	background-color: #262625; /* Change this to your preferred dark mode background color */
 	color: #fff; /* Change this to your preferred dark mode text color */
   }
   
@@ -399,20 +399,20 @@ body {
 	color: #f0e4e4;
   } 
 
-  /* .dark-mode form button{
-	background-color: #eb3b3b;
-	color:#052006;
+  .dark-mode form button{
+	background-color: #ebb0b0;
+	color:#f7faf7;
   }
   .dark-mode form button:active{ 
 	background-color: #083d0a;
-  } */
+  }
   .dark-mode #searchInput{ 
 	color:#f3f0f0;
   }
   .dark-mode span{ 
 	color:#f3f0f0;
   }
-  .dark-mode  button{
+  .dark-mode .boxfarmer button{
 	background-color: #eb3b3b3d;
 	border: 2px solid rgba(128, 0, 0, 0.918);
 	background: linear-gradient(to right, rgba(253, 42, 27, 0.1) 1%, transparent 40%,transparent 60% , rgba(253, 72, 27, 0.1) 100%);

@@ -16,6 +16,7 @@ import Settings from './components/Settings';
 
 function App() {
   const [userId, setUserId] = useState(null);
+  const[category,setCategorty]=useState("All");
   const [isDarkMode, setIsDarkMode] = useState(() => {
     // Retrieve dark mode preference from localStorage or use false as default
     const savedDarkMode = localStorage.getItem('darkMode');
@@ -40,12 +41,12 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} />} />
+          <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} setCategorty={setCategorty}/>} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<Products category={category}/>} />
           <Route path="/products/:product_id" element={<Product userId={userId} />} />
-          <Route path="/farmerdashboard" element={<FarmerDashboard userId={userId} />} />
+          <Route path="/farmerdashboard" element={<FarmerDashboard userId={userId} category={category} />} />
           <Route path="/farmerproductform" element={<FarmerProductForm userId={userId} />} />
           <Route path="/cart" element={<Cart userId={userId} />} />
           <Route path="/userprofile" element={<UserProfile userId={userId} />} />
