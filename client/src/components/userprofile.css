@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .card-container body {
+    background-color: #ffffff;
+    font-family: Montserrat, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  h3 {
+    margin: 15px 0;
+    font-size: 24px;
+  }
+  
+  h6 {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .card-container {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+    color: #000000;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    position: relative;
+    width: 350px;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .card-container .pro {
+    color: #231e39;
+    background-color: #febb0b;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+  
+  .card-container .round {
+    border: 2px solid #37ff00;
+    border-radius: 50%;
+    padding: 10px;
+  }
+  
+  button.primary {
+    background-color: #03bfcb;
+    border: 1px solid #03bfcb;
+    border-radius: 3px;
+    color: #231e39;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+  
+  button.primary.ghost {
+    background-color: transparent;
+    color: #02899c;
+  }
+  .card-container img {
+    max-width: 100%;
+    max-height: 200px; /* Set the maximum height as needed */
+    object-fit: contain; /* Maintain aspect ratio and fit within the specified dimensions */
+  }
+  .round{
+    align-items: center;
+    justify-content: center;
+    margin-left: 70px;
+  }
+  .search-wrapper {
+    align-items: center;
+    justify-content: center;
+    margin-right: 100px;
+  }
+  
+  .camera {
+    width: 170px; /* Increase the width */
+    height: 170px; /* Increase the height */
+    border-radius: 50%; /* Makes it circular */
+    background-color: rgb(93, 85, 85); /* Add a background color for visibility */
+    margin-left: 100px;
+   
+  }

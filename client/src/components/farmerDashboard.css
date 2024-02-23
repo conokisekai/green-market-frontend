@@ -34,7 +34,7 @@ body {
   font-family: Arial, sans-serif;
   /* background-color: #3f1e45; */
 }
-*/ .project-title {
+.project-title {
   text-align: center;
   margin-top: 96px; /* Increased margin-top by approximately 1 inch */
 }
@@ -141,7 +141,7 @@ background-color: rgba(255, 255, 255, 0.8); /* Add background color with opacity
 .card {
 width: 85vw; /* Adjust the width as needed */
 max-width: calc(300px + 1in); /* Increase by one inch in x-axis */
-background: #ffffff;
+background: #c9c6c6;
 border-radius: 12px;
 box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
 margin-bottom: 1rem;

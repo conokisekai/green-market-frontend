@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import "../App.css";
 
@@ -171,6 +171,7 @@ function UserSignUp({ setUserId }) {
             >
               Sign Up
             </button>
+            <Link to="/resetpassword">Reset Password</Link>
           </form>
         </div>
         <div className="form-container sign-in-container">
@@ -195,6 +196,7 @@ function UserSignUp({ setUserId }) {
             >
               Sign In
             </button>
+            <Link to="/resetpassword">Reset Password</Link>
           </form>
         </div>
         <div className="overlay-container">

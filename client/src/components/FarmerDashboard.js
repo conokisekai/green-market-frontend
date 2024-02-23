@@ -134,7 +134,7 @@ function FarmerDashboard({userId}) {
     }
   };
   return (
-    <div>
+    <div >
       <input type="checkbox" id="mobilmenu" />
       <div className="farmertop">
       <div className="searchfarmerproduct">
@@ -150,7 +150,7 @@ function FarmerDashboard({userId}) {
               <FaShoppingCart style={{ fontSize: '24px', color: '#00ff00' }} />
             </li>
             <li className="mr-4">
-              <FaUser style={{ fontSize: '24px', color: '#00ff00' }} />
+            <Link to="/userprofile"><FaUser style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
             </li>
           </ul>
         </div>

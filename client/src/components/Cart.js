@@ -58,16 +58,17 @@ function Cart({ userId }) {
   }
 
   return (
-    <div className="container" style={{ backgroundImage: "linear-gradient(225deg, #15cfe8, #031a34)" }}>
+    <div className="cart-container">
+      <div className="in-container">
       <h1>Shop Cart</h1>
-      <div className="">
+      <div className="cart-items">
         {cartItems.length === 0 ? (
           <div className="empty-cart-message">Your cart is empty.</div>
         ) : (
           cartItems.map((cartItem) => (
-            <div className="box" key={cartItem.product_id}>
+            <div className="list" key={cartItem.product_id}>
               <img src={cartItem.image_link} alt={cartItem.product_name} />
-              <div className="des">
+              <div className="wrapper">
                 {cartItem.product_name}<br />
                 {/* Out of stalk:{cartItem.is_out_of_stock }<br/> */}
                 Category:{cartItem.category_name}<br />
@@ -75,15 +76,23 @@ function Cart({ userId }) {
                 Quantity:{cartItem.quantity}<br />
                 Price:<b>Ksh {cartItem.price}<br /></b>
 
-                <button onClick={() => handleDeleteCartItem(cartItem)} className="btn-8">
-                <li className="mr-4">
+                <button onClick={() => handleDeleteCartItem(cartItem)} className="delete-btn">
                   <FaTrash style={{ fontSize: '24px', color: '#ff0000' }} />
-                </li>
                 </button>
               </div>
             </div>
           ))
         )}
+      </div>
+      </div>
+      <div className="details-in-container">
+      <div className="details">
+        <div className="wrapper">
+          <h3>YOU TOTAL AMOUNT</h3>
+          <p>Nutrition Facts</p>
+          <p>500 KES</p>
+        </div>
+      </div>
       </div>
     </div>
   );

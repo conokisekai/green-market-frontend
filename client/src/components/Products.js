@@ -2,6 +2,7 @@
 
 import React, { useState,useEffect } from "react";
 import { FaWhatsapp, FaFacebook, FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa';
+import Page from "./ThemeSwitch";
 
 import "./products.css";
 import { Link } from "react-router-dom";
@@ -98,8 +99,8 @@ function Products() {
   };
 
   return (
-    <div>
 
+    <div>
       <input type="checkbox" id="mobilmenu" />
       <div className="top">
       <div className="search">
@@ -114,14 +115,14 @@ function Products() {
               <FaFacebook style={{ fontSize: '24px', color: '#1877f2' }} />
             </li>
             <li className="mr-4">
-              <FaHeart style={{ fontSize: '24px', color: '#00ff00' }} />
+              <Link to="/otp"><FaHeart style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
             </li>
 
             <li className="mr-4">
              <Link to="/cart" ><FaShoppingCart style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
             </li>
             <li className="mr-4">
-              <FaUser style={{ fontSize: '24px', color: '#00ff00' }} />
+             <Link to="/userprofile"><FaUser style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
             </li>
           </ul>
         </div>
@@ -163,7 +164,8 @@ function Products() {
       </div>
 
       <div className="flex">
-      <div>
+      <div className="sideContainer">
+        <div className="sideuppcontainer">
         <div className="bg-navy text-white rounded-l-lg p-4">
           <div className={`sidebar ${isSidebarOpen ? "" : "small"}`}>
             <div className="text-6xl font-bold">Agri-Soko </div>
@@ -179,6 +181,7 @@ function Products() {
             <Link to="/billing">Billing</Link><br/>
             <Link to="/profile">My Profile</Link>
           </div>
+        </div>
         </div>
         <div className="customers">
       <div className="card">
@@ -228,6 +231,7 @@ function Products() {
       </div>
     </div>
     </div>
+
   );
 }
 

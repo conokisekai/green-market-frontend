@@ -1,29 +1,50 @@
-// App.js
-import { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UserSignUp from './components/UserSignUp';
 import Home from './components/Home';
-import Chat from './components/Chat'; // Import the Chat component
+import Chat from './components/Chat';
 import Products from './components/Products';
 import Product from './components/Product';
 import FarmerDashboard from './components/FarmerDashboard';
 import FarmerProductForm from './components/FarmerProductForm';
 import Cart from './components/Cart';
+import UserProfile from './components/UserProfile';
+import OTPVerification from './components/OTPVerification';
+import ResetPassword from './components/ResetPassword';
+import Settings from './components/Settings';
 
 function App() {
-  const[userId , setUserId] = useState(null);
+  const [userId, setUserId] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Apply or remove dark mode class on body based on isDarkMode state
+    document.body.classList.toggle('dark-mode', isDarkMode);
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
+
   return (
-    <div>
+    <div className={`page ${isDarkMode ? 'dark-mode' : ''}`}>
+
+
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} />} />
-          <Route path="/chat" element={<Chat />} /> {/* Add a route for the Chat component */}
-          <Route path="/products" element={<Products/>}/>
-          <Route path="/products/:product_id" element={<Product userId={userId}/>}/>
-          <Route path = "/farmerdashboard" element={<FarmerDashboard userId={userId}/>} />
-          <Route path = "/farmerproductform" element={<FarmerProductForm userId={userId}/>} />
-          <Route path = "/cart" element={<Cart  userId={userId}/>} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:product_id" element={<Product userId={userId} />} />
+          <Route path="/farmerdashboard" element={<FarmerDashboard userId={userId} />} />
+          <Route path="/farmerproductform" element={<FarmerProductForm userId={userId} />} />
+          <Route path="/cart" element={<Cart userId={userId} />} />
+          <Route path="/userprofile" element={<UserProfile userId={userId} />} />
+          <Route path="/otp" element={<OTPVerification />} />
+          <Route path="/resetpassword" element={<ResetPassword />} />
         </Routes>
       </Router>
     </div>
@@ -31,5 +52,6 @@ function App() {
 }
 
 export default App;
+
 
 
