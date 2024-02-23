@@ -16,17 +16,23 @@ import Settings from './components/Settings';
 
 function App() {
   const [userId, setUserId] = useState(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Retrieve dark mode preference from localStorage or use false as default
+    const savedDarkMode = localStorage.getItem('darkMode');
+    return savedDarkMode ? JSON.parse(savedDarkMode) : false;
+  });
 
   useEffect(() => {
     // Apply or remove dark mode class on body based on isDarkMode state
     document.body.classList.toggle('dark-mode', isDarkMode);
+
+    // Save dark mode preference to localStorage
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
-
   return (
     <div className={`page ${isDarkMode ? 'dark-mode' : ''}`}>
 

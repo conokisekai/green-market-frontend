@@ -57,6 +57,7 @@ function Cart({ userId }) {
     return <div className="error-container">Error: {error}</div>;
   }
 
+  const totalPrice = cartItems.reduce((sum, cartItem) => sum + cartItem.price, 0);
   return (
     <div className="cart-container">
       <div className="in-container">
@@ -75,7 +76,6 @@ function Cart({ userId }) {
                 {cartItem.description}<br />
                 Quantity:{cartItem.quantity}<br />
                 Price:<b>Ksh {cartItem.price}<br /></b>
-
                 <button onClick={() => handleDeleteCartItem(cartItem)} className="delete-btn">
                   <FaTrash style={{ fontSize: '24px', color: '#ff0000' }} />
                 </button>
@@ -90,7 +90,8 @@ function Cart({ userId }) {
         <div className="wrapper">
           <h3>YOU TOTAL AMOUNT</h3>
           <p>Nutrition Facts</p>
-          <p>500 KES</p>
+          <p><b>Ksh{totalPrice}</b></p>
+          
         </div>
       </div>
       </div>
