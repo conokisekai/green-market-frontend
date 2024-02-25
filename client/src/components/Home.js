@@ -13,8 +13,8 @@ function Home() {
           <Link to="/usersignup" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Signup as User
           </Link> 
-          <Link to="/chat" className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-            Chat
+          <Link to="/users" >
+            Users
           </Link> {/* Add a link to the Chat page */}
         </div>
       </div>

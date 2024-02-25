@@ -364,6 +364,7 @@ body {
   .dark-mode .online,
   .dark-mode .container,
   .dark-mode .in-container,
+  .dark-mode .custom-container,
   .dark-mode .dark-mode-component {
 	color: #fff; /* Change this to your preferred dark mode heading color */
 	background-color: #646262; /* Change this to your preferred dark mode component background color */

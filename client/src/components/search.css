@@ -3,15 +3,15 @@
   #searchInput {
     box-sizing: border-box;
     padding: 10px 20px; /* Increase padding */
-    width: 40px;
-    background: none;
+    width: 12rem;
+    background: transparent;
     border: 3px solid #080808;
     border-radius: 25px;
     color: #000000; /* Change text color here */
     font-size: 18px; /* Increase font size */
     transition: width 0.5s ease-in-out;
     opacity: 0.6; /* Set the opacity to 0.5 when hovering */
-    
+    font-size: 16px;
   }
   
   #searchIcon {

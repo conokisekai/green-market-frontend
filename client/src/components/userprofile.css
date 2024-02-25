@@ -88,14 +88,15 @@ button.primary.ghost {
 .camera {
   width: 170px; /* Increase the width */
   height: 170px; /* Increase the height */
-  border-radius: 50%; /* Makes it circular */
-  background-color: rgb(93, 85, 85); /* Add a background color for visibility */
   margin-left: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.camera img{
+  border-radius: 50%; /* Makes it circular */
+  background-color: rgb(93, 85, 85);
+}
 .empty-photo {
   width: 170px;
   height: 170px;

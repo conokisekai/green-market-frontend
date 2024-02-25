@@ -1,5 +1,5 @@
 import React from 'react';
-import './settings.css'; // Import the CSS file
+import './settings.css';
 
 function Settings ({toggleDarkMode}) {
   return (

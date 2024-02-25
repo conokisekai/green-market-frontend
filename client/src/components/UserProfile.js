@@ -32,14 +32,13 @@ const UserProfile = ({ userId }) => {
       <span className="pro">{userDetails.role}</span>
       <div className="search-wrapper">
         <label className="camera">
-            <div>
               <img src={userDetails.image_link} alt={userDetails.username}/>
-            </div>
         </label>
       </div>
       <h3>{userDetails.username}</h3>
       <h6>Email: {userDetails.email}</h6>
       <h6>Phone: {userDetails.phone}</h6>
+      <h6>Address: {userDetails.address}</h6>
       {error && <p className="error-message">{error}</p>}
       <label className='online'>
         <input type="checkbox" id="online-status" />

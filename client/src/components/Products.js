@@ -29,9 +29,9 @@ function CustomerCard(props) {
 }
 
 function Products({category}) {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [slides, setSlides] = useState([
+  const [slides] = useState([
     {
       imageUrl:
         "https://i.pinimg.com/originals/28/d1/e2/28d1e28d41cb6ef0ee7d301441433c36.gif",
@@ -109,12 +109,6 @@ function Products({category}) {
        <div className="menu">
           <ul className="flex">
             <li className="mr-4">
-              <FaWhatsapp style={{ fontSize: '24px', color: '#00ff00' }} />
-            </li>
-            <li className="mr-4">
-              <FaFacebook style={{ fontSize: '24px', color: '#1877f2' }} />
-            </li>
-            <li className="mr-4">
               <Link to="/otp"><FaHeart style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
             </li>
 
@@ -170,12 +164,8 @@ function Products({category}) {
           <div className={`sidebar ${isSidebarOpen ? "" : "small"}`}>
             <div className="text-6xl font-bold">Agri-Soko </div>
             <Link to="/cart">My Orders</Link><br/>
-            <Link to="/explore">Explore</Link><br/>
-            <Link to="/produce">Featured Products</Link><br/>
             <Link to="/settings">Settings</Link><br/>
-            <Link to="/chat">Your Chats</Link><br/>
-            <Link to="/contact">Contact</Link><br/>
-            <Link to="/billing">Billing</Link><br/>
+            <Link to="/contact">Contact</Link><br/>            <Link to="/billing">Billing</Link><br/>
             <Link to="/userprofile">My Profile</Link>
           </div>
         </div>

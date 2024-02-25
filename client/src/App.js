@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UserSignUp from './components/UserSignUp';
 import Home from './components/Home';
-import Chat from './components/Chat';
 import Products from './components/Products';
 import Product from './components/Product';
 import FarmerDashboard from './components/FarmerDashboard';
@@ -13,6 +12,7 @@ import UserProfile from './components/UserProfile';
 import OTPVerification from './components/OTPVerification';
 import ResetPassword from './components/ResetPassword';
 import Settings from './components/Settings';
+import Users from './components/Users';
 
 function App() {
   const [userId, setUserId] = useState(null);
@@ -42,7 +42,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} setCategorty={setCategorty}/>} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/users" element={<Users/>} />
           <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
           <Route path="/products" element={<Products category={category}/>} />
           <Route path="/products/:product_id" element={<Product userId={userId} />} />

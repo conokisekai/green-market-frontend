@@ -10,11 +10,8 @@ class Page extends React.Component {
         <label htmlFor="themeSwitch" className="theme-switch__label">
           <span>Switch theme</span>
         </label>
-
-        {/* Main page content */}
         <main>
           <div className="wrapper">
-            {/* Add your content here */}
           </div>
         </main>
       </div>

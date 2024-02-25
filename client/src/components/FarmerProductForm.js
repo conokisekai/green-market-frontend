@@ -12,7 +12,6 @@ function FarmerProductForm({userId}) {
   const [imageLinkType, setImageLinkType] = useState("link");
   const [image_link, setImage_link] = useState("");
   const [category_name, setCategory_name] = useState("");
-  const [user_id, setUser_id] = useState(0);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -197,7 +196,7 @@ function FarmerProductForm({userId}) {
                 className="form-control transparent-input"
                 id="user_id"
                 value={userId}  // Display the userId from props
-                readOnly       // Make it read-only
+                readOnly       //  read-only
                 required
               />
             </div>

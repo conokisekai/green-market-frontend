@@ -1,0 +1,7 @@
+.custom-container {
+    width: 75%; /* Equivalent to w-3/4 */
+    background-color: #fff; /* Equivalent to bg-white */
+    padding: 1.25rem; /* Equivalent to px-10 and py-10 */
+    margin: auto; /* Center the container horizontally */
+  }
+  

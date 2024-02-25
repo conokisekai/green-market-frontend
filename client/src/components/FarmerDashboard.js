@@ -1,9 +1,8 @@
 
 import React, { useState,useEffect} from "react";
-import { FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaHeart,FaUser } from 'react-icons/fa';
 import "./farmerDashboard.css";
-import { Link ,useParams} from "react-router-dom";
-// import  logo from "./"
+import { Link} from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 function CustomerCard(props) {
@@ -26,13 +25,9 @@ function CustomerCard(props) {
 }
 
 function FarmerDashboard({userId}) {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [productId, setProductId] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
-  const { product_id } = useParams();
-  const [slides, setSlides] = useState([
+  const [slides] = useState([
     {
       imageUrl:
         "https://i.pinimg.com/originals/28/d1/e2/28d1e28d41cb6ef0ee7d301441433c36.gif",
@@ -67,11 +62,9 @@ function FarmerDashboard({userId}) {
       .then((data) => {
         setProducts(data.products);
         console.log(data.product)
-        setProductId(data.products[0].product_id);
       })
       .catch((error) => {
-        console.error("Error fetching products:", error);
-        setError("Failed to fetch products. Please try again.");
+        console.error("Failed to fetch products. Please try again:", error);
       });
        console.log(userId)
   }, [userId]);
@@ -91,7 +84,7 @@ function FarmerDashboard({userId}) {
   useEffect(() => {
     const autoSlideInterval = setInterval(() => {
       setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000); // Adjust the interval time (in milliseconds) here
+    }, 3000); 
 
     return () => clearInterval(autoSlideInterval);
   }, [slides.length]);
@@ -123,14 +116,12 @@ function FarmerDashboard({userId}) {
       const data = await response.json();
   
       if (response.ok) {
-        setMessage(data.message);
-        // Update the products state after deletion if needed
         setProducts((prevProducts) => prevProducts.filter((product) => product.product_id !== product_id));
       } else {
-        setError(data.error || 'Something went wrong');
+        console.error(data.error || 'Something went wrong');
       }
     } catch (error) {
-      setError('An error occurred while communicating with the server');
+      console.error('An error occurred while communicating with the server');
     }
   };
   return (
@@ -142,11 +133,8 @@ function FarmerDashboard({userId}) {
       </div>
         <div className="menufarmer">
           <ul className="flex">
-          <li className="mr-4">
-              <FaHeart style={{ fontSize: '24px', color: '#00ff00' }} />
-            </li>
             <li className="mr-4">
-            <Link to="/userprofile"><FaUser style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
+            <Link to="/userprofile"><FaUser style={{ fontSize: '35px', color: '#00ff00' }} /></Link>
             </li>
           </ul>
         </div>
@@ -184,7 +172,6 @@ function FarmerDashboard({userId}) {
         ))}
       </ul>
     </div>
-
   </div>
 
       <div className="flex">
@@ -193,13 +180,7 @@ function FarmerDashboard({userId}) {
           <div className={`sidebar ${isSidebarOpen ? "" : "small"}`}>
             <div className="text-6xl font-bold">Agri-Soko </div>
             <Link to="/products">Dashboard</Link><br/>
-            <Link to="/explore">Explore</Link><br/>
-            <Link to="/produce">Featured Products</Link><br/>
-            Settings<br/>
             <Link to="/settings">Settings</Link><br/>
-            {/* <Link to="/chat">Your Chats</Link><br/> */}
-            {/* <Link to="/produce">Trends</Link><br/> */}
-            <Link to="/contact">Contact</Link><br/>
             <Link to="/billing">Billing</Link><br/>
             <Link to="/userprofile">My Profile</Link><br/>
             <Link to="/farmerproductform" className="add">Add Product</Link>
@@ -221,7 +202,7 @@ function FarmerDashboard({userId}) {
         </div>
       </div>
     </div>
-      </div>
+    </div>
 
       <div className={`icerik ${isSidebarOpen ? "" : "small"}`}>
         <div className="ust"></div>
@@ -232,7 +213,6 @@ function FarmerDashboard({userId}) {
               <img
                 src={product.image_link}
                 alt={product.product_name}
-                // className="object-cover border-radius-5 border-bottom-right-radius-60 h-160 w-full"
                 className="object-cover rounded-md border border-gray-300 h-48 w-full"
               />
               <div className="des">
@@ -252,52 +232,3 @@ function FarmerDashboard({userId}) {
 
 export default FarmerDashboard;
 
-// import React, { useState } from 'react';
-
-// function App() {
-//   const [productId, setProductId] = useState('');
-//   const [message, setMessage] = useState('');
-//   const [error, setError] = useState('');
-
-//   const handleDeleteProduct = async () => {
-//     try {
-//       const response = await fetch(`/delete_product/${productId}`, {
-//         method: 'DELETE',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-
-//       const data = await response.json();
-
-//       if (response.ok) {
-//         setMessage(data.message);
-//       } else {
-//         setError(data.error || 'Something went wrong');
-//       }
-//     } catch (error) {
-//       setError('An error occurred while communicating with the server');
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h1>Delete Product</h1>
-//       <div>
-//         <label htmlFor="productId">Product ID:</label>
-//         <input
-//           type="number"
-//           id="productId"
-//           value={productId}
-//           onChange={(e) => setProductId(e.target.value)}
-//         />
-//       </div>
-//       <button onClick={handleDeleteProduct}>Delete Product</button>
-
-//       {message && <p style={{ color: 'green' }}>{message}</p>}
-//       {error && <p style={{ color: 'red' }}>{error}</p>}
-//     </div>
-//   );
-// }
-
-// export default App;
