@@ -91,12 +91,12 @@ function UserSignUp({ setUserId }) {
           console.log(data.role);
           console.log(data.user_id)
 
-          if (data.role === 'farmer') {
+          if (data.role === 'Seller') {
             navigate(`/farmerdashboard`);
-            setUserId(data.user_id);
-          } else {
-            navigate(`/products`);
           }
+          else if (data.role === 'admin') {
+            navigate(`/users`);
+          }else(navigate('/products'));
         } else {
           console.error("User ID is not defined in the response:", data);
         }
@@ -181,8 +181,8 @@ function UserSignUp({ setUserId }) {
               onChange={handleInputChange}
               className="mt-3 py-2 px-4 rounded-md border border-gray-300 focus:outline-none focus:border-indigo-500"
             >
-              <option value="buyer">Buyer</option>
-              <option value="farmer">Farmer</option>
+              <option value="Buyer">Buyer</option>
+              <option value="Seller">Farmer/Seller</option>
             </select>
             <button
               type="submit"
