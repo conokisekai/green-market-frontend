@@ -140,6 +140,7 @@
 import React, { useEffect, useState } from "react";
 import { FaTrash } from 'react-icons/fa';
 import "./cart.css";
+import { Link } from "react-router-dom";
 
 function Cart({ userId }) {
   const [cartItems, setCartItems] = useState([]);
@@ -170,6 +171,7 @@ function Cart({ userId }) {
 
   const handleDeleteCartItem = (cartItem) => {
     console.log(cartItem.id);
+
     fetch(`/cartitems/${cartItem.id}`, {
       method: "DELETE",
     })
@@ -187,7 +189,7 @@ function Cart({ userId }) {
   };
 
   const calculateTotalPrice = () => {
-    return cartItems.reduce((sum, cartItem) => sum + cartItem.price, 0);
+    return cartItems.reduce((sum, cartItem) => sum + cartItem.total_price, 0);
   };
 
   if (loading) {
@@ -210,6 +212,7 @@ function Cart({ userId }) {
             <div className="flex mt-10 mb-5">
               <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
               <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
+              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
               <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
             </div>
             {cartItems.map((cartItem) => (
@@ -226,8 +229,9 @@ function Cart({ userId }) {
                     </a>
                   </div>
                 </div>
-                <span className="text-center w-1/5 font-semibold text-sm">${cartItem.price}</span>
-                <span className="text-center w-1/5 font-semibold text-sm">${cartItem.price}</span>
+                <span className="text-center w-1/5 font-semibold text-sm">Ksh {cartItem.price}</span>
+                <span className="text-center w-1/5 font-semibold text-sm">{cartItem.quantity}</span>
+                <span className="text-center w-1/5 font-semibold text-sm">Ksh {cartItem.total_price}</span>
                 <FaTrash
                   style={{ fontSize: '24px', color: '#ff0000', cursor: 'pointer' }}
                   onClick={() => handleDeleteCartItem(cartItem)}
@@ -235,7 +239,7 @@ function Cart({ userId }) {
               </div>
             ))}
             <div className="flex font-semibold text-indigo-600 text-sm mt-10">
-              Continue Shopping
+              <Link to="/products">Continue Shopping</Link>
             </div>
           </div>
           <div id="summary" className="w-1/4 px-8 py-10">
@@ -255,6 +259,9 @@ function Cart({ userId }) {
 }
 
 export default Cart;
+
+
+
 
 
 

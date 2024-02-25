@@ -172,7 +172,6 @@ function Products({category}) {
             <Link to="/cart">My Orders</Link><br/>
             <Link to="/explore">Explore</Link><br/>
             <Link to="/produce">Featured Products</Link><br/>
-            Settings<br/>
             <Link to="/settings">Settings</Link><br/>
             <Link to="/chat">Your Chats</Link><br/>
             <Link to="/contact">Contact</Link><br/>

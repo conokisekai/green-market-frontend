@@ -49,7 +49,7 @@ function App() {
           <Route path="/farmerdashboard" element={<FarmerDashboard userId={userId} category={category} />} />
           <Route path="/farmerproductform" element={<FarmerProductForm userId={userId} />} />
           <Route path="/cart" element={<Cart userId={userId} />} />
-          <Route path="/userprofile" element={<UserProfile userId={userId} />} />
+          <Route path="/userprofile" element={<UserProfile userId={userId}/>} />
           <Route path="/otp" element={<OTPVerification />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
         </Routes>
