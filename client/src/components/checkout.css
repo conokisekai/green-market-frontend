@@ -1,0 +1,134 @@
+/* Center the product card */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .product-card {
+    width: 100%;
+    max-width: 1000px; /* Adjusted maximum width /
+    margin: 0 20px; / Add margin to prevent content from touching the edges /
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative; / Set position to relative /
+    display: flex; / Use flexbox for layout */
+  }
+  
+  .mpesa-card {
+    position: absolute;
+    top: 10px;
+    left: 30px; /* Adjusted the left value to increase the x-axis spacing */
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 30px;
+    margin-top: 380px;
+    padding: 30px;
+    font-size: 20px;
+    z-index: 1;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    width: 30%;
+  }
+  
+  .product-card header {
+    flex: 1; /* Take up 50% of the width */
+    padding: 20px;
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-bio {
+    flex: 1; /* Take up 50% of the width */
+    padding: 20px;
+  }
+  
+  .product-bio p {
+    margin-bottom: 10px;
+  }
+  
+  .product-bio ol {
+    padding-left: 20px;
+  }
+  
+  .product-bio li {
+    margin-bottom: 10px;
+  }
+  
+  .product-bio li strong {
+    font-weight: bold;
+  }
+  
+  .product-bio input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    box-sizing: border-box;
+  }
+  
+  .submit-btn {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 24px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: left;
+    padding: 10px 20px;
+  }
+  
+  .footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .footer-content p {
+    margin: 0;
+  }
+  
+  /* Added CSS for bottom-left positioning */
+  .bottom-left-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+  }
+  
+  .bottom-left-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .bottom-left-list li {
+    margin-bottom: 5px;
+  }
+  
+  
