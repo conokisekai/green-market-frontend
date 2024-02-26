@@ -8,7 +8,7 @@ const UserProfile = ({ userId }) => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch(`/get_user/${userId}`);
+        const response = await fetch(`/admin/users/${userId}`);
         if (response.ok) {
           const data = await response.json();
           setUserDetails(data);
