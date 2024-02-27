@@ -28,6 +28,7 @@ const UserProfile = ({ userId }) => {
 
 
   return (
+    <div className='cardy'>
     <div className="card-container">
       <span className="pro">{userDetails.role}</span>
       <div className="search-wrapper">
@@ -44,6 +45,7 @@ const UserProfile = ({ userId }) => {
         <input type="checkbox" id="online-status" />
         <span>Online</span>
       </label>
+    </div>
     </div>
   );
 };

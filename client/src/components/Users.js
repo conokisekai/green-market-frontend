@@ -9,7 +9,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUserList = async () => {
       try {
-        const response = await fetch('/admin/users'); // Update the endpoint to match your backend route
+        const response = await fetch('admin/users'); // Update the endpoint to match your backend route
         if (response.ok) {
           const data = await response.json();
           setUserList(data.users);

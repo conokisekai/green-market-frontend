@@ -1,8 +1,9 @@
 
 
 import React, { useState,useEffect } from "react";
-import { FaWhatsapp, FaFacebook, FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa';
 import Page from "./ThemeSwitch";
+
 
 import "./products.css";
 import { Link } from "react-router-dom";
@@ -100,7 +101,7 @@ function Products({category}) {
 
   return (
 
-    <div>
+    <div className="products">
       <input type="checkbox" id="mobilmenu" />
       <div className="top">
       <div className="search">
@@ -215,7 +216,7 @@ function Products({category}) {
         </div>
       </div>
     </div>
-    </div>
+    </div>   
 
   );
 }

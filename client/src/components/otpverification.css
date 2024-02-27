@@ -1,5 +1,5 @@
 
-body {
+/* body {
   height: 100vh;
   display: grid;
   place-items: center;
@@ -8,10 +8,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-}
+} */
 
-/* Container styles */
-/* Container styles */
 .container {
   display: flex;
   flex-direction: column;
@@ -19,7 +17,6 @@ body {
   justify-content: center;
   width: 13cm; /* Set width to 13cm */
   height: 13cm; /* Set height to 13cm */
-  background-color: #eaf5f6;
   box-sizing: border-box;
   margin: 0 auto; /* Center horizontally */
   padding: 0;

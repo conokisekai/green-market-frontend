@@ -63,6 +63,7 @@ function Cart({ userId }) {
   }
 
   return (
+    <div className="cart-page">
     <div className="bg-gray-100">
       <div className="container mx-auto mt-10">
         <div className="flex shadow-md my-10">
@@ -113,6 +114,7 @@ function Cart({ userId }) {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

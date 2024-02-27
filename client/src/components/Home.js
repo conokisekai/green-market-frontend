@@ -15,7 +15,10 @@ function Home() {
           </Link> 
           <Link to="/users" >
             Users
-          </Link> {/* Add a link to the Chat page */}
+          </Link> 
+          <Link to="/homepage" >
+            Home
+          </Link> 
         </div>
       </div>
     </div>

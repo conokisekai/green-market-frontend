@@ -1,0 +1,90 @@
+/* Keyframes for button animation */
+.footer-container{
+    background-color: rgba(51, 241, 108, 0.795);
+    color: #f3f1f1a1;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding: 20px; /* Add padding if needed */
+    box-sizing: border-box;
+    margin-top: auto;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Your existing styles */
+.weekly-schedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px; /* Adjust the size as needed */
+  margin: 0 auto;
+  padding: 20px;
+}
+  
+  .weekly-schedule h1 {
+    font-size: 1.1rem; /* Adjust the font size as needed */
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .day-and-activity {
+    display: grid;
+    grid-template-columns: 15% 60% 25%;
+    align-items: center;
+    border-radius: 12px; /* Make it slightly larger */
+    margin-bottom: 8px; /* Increase the spacing */
+    color: #000000;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px; /* Increase the shadow */
+    background-color: #0d8f1fd2;
+    padding: 10px; /* Add padding to prevent touching the walls */
+  }
+  
+  .day h1 {
+    font-size: 0.9rem; /* Adjust the font size as needed */
+  }
+  
+  .day p {
+    font-size: 0.8rem; /* Adjust the font size as needed */
+  }
+  
+  .activity h2 {
+    font-size: 1rem; /* Adjust the font size as needed */
+  }
+  
+  .participants img {
+    width: 24px; /* Adjust the size as needed */
+    height: 24px; /* Adjust the size as needed */
+    border-radius: 50%;
+    margin-left: -6px; /* Adjust the spacing */
+  }
+  
+  .btn {
+    font-size: 0.9rem; /* Adjust the font size as needed */
+    padding: 8px 20px; /* Adjust the padding */
+    margin: 10px auto; /* Adjust the margin */
+    border-radius: 22px; /* Make it slightly larger */
+    color: #ffffff; /* Changed text color to white */
+    background-color: #4caf50; /* Changed background color to green */
+    border: none; /* Removed border */
+    cursor: pointer;
+    animation: pulse 1s infinite alternate; /* Added animation */
+    margin-left: 80px;
+  }
+
+
+  /* .left-bottom{
+    align-items: start;
+    text-align: center;
+  } */
+  

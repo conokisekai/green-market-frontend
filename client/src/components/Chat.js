@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Chat = () => {
-  const [messages, setMessages] = useState([
+  const [messages] = useState([
     { id: 1, sender: 'buyer', text: 'Hi, I am interested in your products.' },
     { id: 2, sender: 'farmer', text: 'Sure, which products are you interested in?' }
     // Add more messages as needed

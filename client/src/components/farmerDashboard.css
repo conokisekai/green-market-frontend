@@ -1,3 +1,14 @@
+.farmerdashboard{
+  display: grid;
+  place-items: center;
+  background-color: #EAF5F6;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+
 .cardf1 {
   display: flex;
   flex-wrap: wrap;

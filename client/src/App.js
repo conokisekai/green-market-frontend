@@ -13,6 +13,8 @@ import OTPVerification from './components/OTPVerification';
 import ResetPassword from './components/ResetPassword';
 import Settings from './components/Settings';
 import Users from './components/Users';
+import HomePage from './components/HomePage';
+import Footer from './components/Footer';
 
 function App() {
   const [userId, setUserId] = useState(null);
@@ -40,9 +42,10 @@ function App() {
 
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<HomePage />} />
           <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} setCategorty={setCategorty}/>} />
           <Route path="/users" element={<Users/>} />
+          <Route path="/homepage" element={<Home/>} />
           <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
           <Route path="/products" element={<Products category={category}/>} />
           <Route path="/products/:product_id" element={<Product userId={userId} />} />
@@ -53,6 +56,7 @@ function App() {
           <Route path="/otp" element={<OTPVerification />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
         </Routes>
+        <Footer/>
       </Router>
     </div>
   );

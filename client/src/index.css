@@ -420,6 +420,11 @@ body {
 	color: #e9e5e5f6;
 	box-shadow: inset 0 0 10px rgba(253, 35, 27, 0.4), 0 0 9px 3px rgba(253, 53, 27, 0.1);
   }
+  .dark-mode .footer-container{
+    background-color: rgba(16, 121, 47, 0.795);}
+  .dark-mode .homepage{
+	color: #000000;
+  }
   .theme-switch__input {
 	display: none;
   }

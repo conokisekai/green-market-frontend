@@ -1,0 +1,9 @@
+ .homepage{
+    background-image: url("./intro3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100vw;
+    height: 100vh;
+
+}

@@ -1,9 +1,10 @@
 
 import React, { useState,useEffect} from "react";
-import { FaHeart,FaUser } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import "./farmerDashboard.css";
 import { Link} from "react-router-dom";
 import SearchBar from "./SearchBar";
+
 
 function CustomerCard(props) {
   return (
@@ -125,7 +126,7 @@ function FarmerDashboard({userId}) {
     }
   };
   return (
-    <div >
+    <div className="farmerdashboard" >
       <input type="checkbox" id="mobilmenu" />
       <div className="farmertop">
       <div className="searchfarmerproduct">
