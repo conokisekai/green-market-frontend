@@ -4,9 +4,23 @@ import "./checkout.css";
 const Checkout = () => {
   const [phone, setPhone] = useState("");
   const [amount, setAmount] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const phoneRegex = /^254\d{9}$/;
+    if (!phone.match(phoneRegex)) {
+      setErrorMessage("Phone number must start with '254' and be 12 digits.");
+      return;
+    }
+
+    const amountRegex = /^\d+$/;
+    if (!amount.match(amountRegex)) {
+      setErrorMessage("Amount must be a valid integer.");
+      return;
+    }
+
     try {
       const response = await fetch("/stkpush", {
         method: "POST",
@@ -18,8 +32,11 @@ const Checkout = () => {
           amount: amount,
         }),
       });
+
       const data = await response.json();
-      console.log(data); // Log the response from the backend
+      console.log(data);
+
+      setErrorMessage("");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -97,13 +114,15 @@ const Checkout = () => {
         <div className="phone-input">
           <form onSubmit={handleSubmit}>
             <input
-              type="text"
+              type="tel"
+              pattern="[0-9]*"
               placeholder="Enter your phone number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
             <input
-              type="text"
+              type="number"
+              pattern="[0-9]*"
               placeholder="Enter the amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
@@ -112,11 +131,12 @@ const Checkout = () => {
               Submit
             </button>
           </form>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
       </div>
       <div className="bottom-left-container">
         <div className="bottom-left-content">
-          {/* ... additional content ... */}
+          {/* Additional content goes here */}
         </div>
       </div>
       <footer className="footer">
