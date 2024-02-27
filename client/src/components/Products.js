@@ -29,12 +29,12 @@ function CustomerCard(props) {
   );
 }
 
-function Products({users}) {
+function Products(users) {
   const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [products,setProducts]=useState([])
   const [filteredProducts,setFilteredProducts]=useState([])
-
+console.log(users)
   useEffect(() => {
     fetch("/get_all_products")
       .then((response) => response.json())
@@ -67,19 +67,18 @@ function Products({users}) {
        <div className="menu">
           <ul className="flex">
             <li className="mr-4">
-              <Link to="/otp"><FaHeart style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
+              <Link to="/otp"><FaHeart style={{ fontSize: '24px', color: 'rgba(0, 0, 0, 0.514)' }} /></Link>
             </li>
 
             <li className="mr-4">
-             <Link to="/cart" ><FaShoppingCart style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
+             <Link to="/cart" ><FaShoppingCart style={{ fontSize: '24px', color: 'rgba(0, 0, 0, 0.514)' }} /></Link>
             </li>
             <li className="mr-4">
-             <Link to="/userprofile"><FaUser style={{ fontSize: '24px', color: '#00ff00' }} /></Link>
+             <Link to="/userprofile"><FaUser style={{ fontSize: '24px', color: 'rgba(0, 0, 0, 0.514)' }} /></Link>
             </li>
           </ul>
         </div>
-
-  </div>
+      </div>
   <div>
       </div>
 
@@ -103,12 +102,16 @@ function Products({users}) {
           <h2>New Customers</h2>
           <button>See all <span className="fas fa-arrow-right"></span></button>
         </div>
-
-      {/* {users.slice(0, 4).map((user, index) => (
+      {users.length > 0 ? (
+      users.map((user, index) => (
         <div className="card-body"key={index}>
           <CustomerCard name={user.username} position={user.role} image={<img src={user.image_link} alt={user.username}/> }/>
         </div>
-      ))} */}
+      ))
+      ) : (
+        <p>Loading data....</p>
+      )
+    }
       </div>
     </div>
       </div>

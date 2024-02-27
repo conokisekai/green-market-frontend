@@ -307,3 +307,9 @@ justify-content:center;
   font-style: oblique;
   font-weight: bold;
 }
+.farmertop {
+  display: flex;
+  align-items: center; /* Center vertically */
+
+  justify-content:end;
+}

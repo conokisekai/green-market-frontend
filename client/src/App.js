@@ -17,13 +17,35 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 
 function App() {
+  const [users,setUsers]=useState([])
   const [userId, setUserId] = useState(null);
-  const[category,setCategorty]=useState("All");
+  const [error, setError] = useState(null);
+  const[role,setRole]=useState("All");
   const [isDarkMode, setIsDarkMode] = useState(() => {
     // Retrieve dark mode preference from localStorage or use false as default
     const savedDarkMode = localStorage.getItem('darkMode');
     return savedDarkMode ? JSON.parse(savedDarkMode) : false;
   });
+  useEffect(() => {
+    const fetchUserList = async () => {
+      try {
+        const response = await fetch('/admin/users');
+        if (response.ok) {
+          const data = await response.json();
+          setUsers(data);
+          console.log(data)
+        } else {
+          console.error('Server Error:', response.statusText);
+          setError('Error fetching user list. Please try again.');
+        }
+      } catch (error) {
+        console.error('Client Error:', error);
+        setError('Error fetching user list. Please try again.');
+      }
+    };
+
+    fetchUserList();
+  }, []);
 
   useEffect(() => {
     // Apply or remove dark mode class on body based on isDarkMode state
@@ -44,13 +66,13 @@ function App() {
         <Navbar/>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} setCategorty={setCategorty}/>} />
-          <Route path="/users" element={<Users/>} />
+          <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} setRole={setRole}/>} />
+          <Route path="/users" element={<Users setUsers={setUsers} users={users} error={error}/>} />
           <Route path="/homepage" element={<HomePage/>} />
           <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
-          <Route path="/products" element={<Products category={category}/>} />
+          <Route path="/products" element={<Products role={role} users={users}/>} />
           <Route path="/products/:product_id" element={<Product userId={userId} />} />
-          <Route path="/farmerdashboard" element={<FarmerDashboard userId={userId} category={category} />} />
+          <Route path="/farmerdashboard" element={<FarmerDashboard userId={userId} role={role} users={users}/>} />
           <Route path="/farmerproductform" element={<FarmerProductForm userId={userId} />} />
           <Route path="/cart" element={<Cart userId={userId} />} />
           <Route path="/userprofile" element={<UserProfile userId={userId}/>} />

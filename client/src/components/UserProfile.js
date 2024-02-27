@@ -32,9 +32,7 @@ const UserProfile = ({ userId }) => {
     <div className="card-container">
       <span className="pro">{userDetails.role}</span>
       <div className="search-wrapper">
-        <label className="camera">
-              <img src={userDetails.image_link} alt={userDetails.username}/>
-        </label>
+          <img src={userDetails.image_link} alt={userDetails.username}/>
       </div>
       <h3>{userDetails.username}</h3>
       <h6>Email: {userDetails.email}</h6>

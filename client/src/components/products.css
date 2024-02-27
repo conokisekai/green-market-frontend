@@ -243,12 +243,19 @@
   }
 }
 
-.top{
+.top {
   display: flex;
   align-items: center; /* Center vertically */
-  justify-content:space-between;
+
+  justify-content:end;
+}
+
+/* Add margin to the child elements if needed */
+.top > * {
+  margin-right: 10px; /* Adjust the margin as needed */
   
 }
+
 
 .menu{
   color: #626462;

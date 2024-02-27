@@ -3,9 +3,9 @@
   #searchInput {
     box-sizing: border-box;
     padding: 10px 20px; /* Increase padding */
-    width: 12rem;
+    width: 35rem;
     background: transparent;
-    border: 3px solid #080808;
+    border: 1px solid #080808;
     border-radius: 25px;
     color: #000000; /* Change text color here */
     font-size: 18px; /* Increase font size */
@@ -23,7 +23,7 @@
     height: 3px;
     border-radius: 2px;
     background: #ffffff4f;
-    transform: rotate(45deg);
+    /* transform: rotate(45deg); */
     transition: 0.3s ease-in-out;
   }
   
@@ -42,7 +42,7 @@
   
   #searchInput:focus {
     outline: none;
-    width: 200px;
+    width: 35rem;
   }
   
   #searchInput:focus + #searchIcon {

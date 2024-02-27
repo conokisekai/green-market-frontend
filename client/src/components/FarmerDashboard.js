@@ -25,7 +25,7 @@ function CustomerCard(props) {
   );
 }
 
-function FarmerDashboard({userId}) {
+function FarmerDashboard({userId,users}) {
   const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [products,setProducts]=useState([]);
@@ -91,7 +91,7 @@ function FarmerDashboard({userId}) {
         <div className="menufarmer">
           <ul className="flex">
             <li className="mr-4">
-            <Link to="/userprofile"><FaUser style={{ fontSize: '35px', color: '#00ff00' }} /></Link>
+            <Link to="/userprofile"><FaUser style={{ fontSize: '35px', color: 'rgba(0, 0, 0, 0.514)' }} /></Link>
             </li>
           </ul>
         </div>
@@ -121,11 +121,16 @@ function FarmerDashboard({userId}) {
           <h2>New Customers</h2>
           <button>See all <span className="fas fa-arrow-right"></span></button>
         </div>
-        <div className="card-body">
-          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
+        {users.length > 0 ? (
+      users.map((user, index) => (
+        <div className="card-body"key={index}>
+          <CustomerCard name={user.username} position={user.role} image={<img src={user.image_link} alt={user.username}/> }/>
         </div>
+      ))
+      ) : (
+        <p>Loading data....</p>
+      )
+    }
       </div>
     </div>
     </div>
