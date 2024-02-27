@@ -1,10 +1,28 @@
-import React from 'react';
-import './checkout.css'; // Make sure to import your CSS file+
+import React, { useState } from "react";
+import "./checkout.css";
 
-const ProductCard = () => {
-  const handleSubmit = (e) => {
+const Checkout = () => {
+  const [phone, setPhone] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic for handling form submission here
+    try {
+      const response = await fetch("/stkpush", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          phone_number: phone,
+          amount: amount,
+        }),
+      });
+      const data = await response.json();
+      console.log(data); // Log the response from the backend
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -78,7 +96,18 @@ const ProductCard = () => {
         </p>
         <div className="phone-input">
           <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Enter your phone number" />
+            <input
+              type="text"
+              placeholder="Enter your phone number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Enter the amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
             <button type="submit" className="submit-btn">
               Submit
             </button>
@@ -99,4 +128,4 @@ const ProductCard = () => {
   );
 };
 
-export default ProductCard;
+export default Checkout;
