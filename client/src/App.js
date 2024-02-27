@@ -13,7 +13,7 @@ import OTPVerification from './components/OTPVerification';
 import ResetPassword from './components/ResetPassword';
 import Settings from './components/Settings';
 import Users from './components/Users';
-
+import Checkout from './components/Checkout';
 function App() {
   const [userId, setUserId] = useState(null);
   const[category,setCategorty]=useState("All");
@@ -52,6 +52,8 @@ function App() {
           <Route path="/userprofile" element={<UserProfile userId={userId}/>} />
           <Route path="/otp" element={<OTPVerification />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
+          <Route path="/checkout" element={<Checkout />} />
+          
         </Routes>
       </Router>
     </div>
