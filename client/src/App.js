@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UserSignUp from './components/UserSignUp';
-import Home from './components/Home';
 import Products from './components/Products';
 import Product from './components/Product';
 import FarmerDashboard from './components/FarmerDashboard';
@@ -15,6 +14,7 @@ import Settings from './components/Settings';
 import Users from './components/Users';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 
 function App() {
   const [userId, setUserId] = useState(null);
@@ -41,11 +41,12 @@ function App() {
 
 
       <Router>
+        <Navbar/>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} setCategorty={setCategorty}/>} />
           <Route path="/users" element={<Users/>} />
-          <Route path="/homepage" element={<Home/>} />
+          <Route path="/homepage" element={<HomePage/>} />
           <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
           <Route path="/products" element={<Products category={category}/>} />
           <Route path="/products/:product_id" element={<Product userId={userId} />} />

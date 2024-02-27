@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './users.css';
+import Products from './Products';
 
 const Users = () => {
   const [userList, setUserList] = useState([]);
@@ -25,9 +26,11 @@ const Users = () => {
 
     fetchUserList();
   }, []);
-
+  <Products users={userList} />
   return (
+    
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+
       {userList.map((user, index) => (
         <div className="users-container" key={index}>
           <span className="pro">{user.role}</span>

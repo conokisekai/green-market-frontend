@@ -1,25 +1,12 @@
 import React from "react";
 import "./homepage.css"
-import { Link } from 'react-router-dom';
+
 
 
 function HomePage(props){
   return (
 <div className="homepage">
 <div className="space-x-4">
-        <Link to="/products">Prodece</Link>
-        <Link to="/farmerdashboard">FarmerDashboard</Link>
-          <Link to="/usersignup">
-            Signup  & Login
-          </Link> 
-          <Link to="/users" >
-            Users
-          </Link> 
-          <Link to="/homepage" >
-            Home
-          </Link> 
-
-
         </div>
 </div>
   );

@@ -29,30 +29,9 @@ function CustomerCard(props) {
   );
 }
 
-function Products({category}) {
+function Products({users}) {
   const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [slides] = useState([
-    {
-      imageUrl:
-        "https://i.pinimg.com/originals/28/d1/e2/28d1e28d41cb6ef0ee7d301441433c36.gif",
-      title: "Laurence Ipsen",
-      description: "",
-    },
-    {
-      imageUrl:
-        "https://i.pinimg.com/originals/59/a5/a0/59a5a0ca931fe2db6756cd7f9fb1fec5.gif",
-      title: "Lorem ipsum 2",
-      description: "",
-    },
-    {
-      imageUrl:
-        "https://i.pinimg.com/originals/b0/aa/3a/b0aa3ac0c38ff1174cdef4ced5d8a5c3.gif",
-      title: "Lorem ipsum 3",
-      description: "",
-    },
-  ]);
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [products,setProducts]=useState([])
   const [filteredProducts,setFilteredProducts]=useState([])
 
@@ -77,32 +56,10 @@ function Products({category}) {
       setFilteredProducts([]);
     }
   };
-  useEffect(() => {
-    const autoSlideInterval = setInterval(() => {
-      setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000); // Adjust the interval time (in milliseconds) here
-
-    return () => clearInterval(autoSlideInterval);
-  }, [slides.length]);
-
-  const prevSlide = () => {
-    setCurrentSlideIndex(
-      (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
-    );
-  };
-
-  const nextSlide = () => {
-    setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
-
-  const updateSlideNav = (index) => {
-    setCurrentSlideIndex(index);
-  };
 
   return (
 
     <div className="products">
-      <input type="checkbox" id="mobilmenu" />
       <div className="top">
       <div className="search">
         <SearchBar onSearch={handleSearch} products={products}/>
@@ -124,38 +81,6 @@ function Products({category}) {
 
   </div>
   <div>
-    <div className="slider">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`slide ${index === currentSlideIndex ? "active" : ""}`}
-        >
-          <img src={slide.imageUrl} alt=" Description" />
-          <h2 className="slide-title">{slide.title}</h2>
-          <p className="slide-desc">{slide.description}</p>
-        </div>
-      ))}
-      <button className="arrow prev" onClick={prevSlide}>
-        Prev
-      </button>
-      <button className="arrow next" onClick={nextSlide}>
-        Next
-      </button>
-      <ul className="slide-nav">
-        {slides.map((slide, index) => (
-          <li
-            key={index}
-            className={`nav-item ${
-              index === currentSlideIndex ? "item-active" : ""
-            }`}
-            onClick={() => updateSlideNav(index)}
-          ></li>
-        ))}
-      </ul>
-    </div>
-
-  
-
       </div>
 
       <div className="flex">
@@ -166,7 +91,8 @@ function Products({category}) {
             <div className="text-6xl font-bold">Agri-Soko </div>
             <Link to="/cart">My Orders</Link><br/>
             <Link to="/settings">Settings</Link><br/>
-            <Link to="/contact">Contact</Link><br/>            <Link to="/billing">Billing</Link><br/>
+            <Link to="/contact">Contact</Link><br/>
+            <Link to="/billing">Billing</Link><br/>
             <Link to="/userprofile">My Profile</Link>
           </div>
         </div>
@@ -177,17 +103,12 @@ function Products({category}) {
           <h2>New Customers</h2>
           <button>See all <span className="fas fa-arrow-right"></span></button>
         </div>
-        <div className="card-body">
-          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
-          {/* Add more CustomerCard components for additional customers */}
+
+      {/* {users.slice(0, 4).map((user, index) => (
+        <div className="card-body"key={index}>
+          <CustomerCard name={user.username} position={user.role} image={<img src={user.image_link} alt={user.username}/> }/>
         </div>
+      ))} */}
       </div>
     </div>
       </div>
