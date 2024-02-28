@@ -17,6 +17,8 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import AllProducts from './components/AllProducts';
 import Checkout from './components/Checkout';
+import Admin from './components/Admin';
+
 function App() {
   const [users,setUsers]=useState([])
   const [userId, setUserId] = useState(null);
@@ -72,6 +74,7 @@ function App() {
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/usersignup" element={<UserSignUp setUserId={setUserId}/>} />
           <Route path="/users" element={<Users/>} />
+          <Route path="/admin" element={<Admin/>} />
           <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
           <Route path="/products" element={<Products role={role} users={users}/>} />
           <Route path="/allproducts" element={<AllProducts/>} />

@@ -140,11 +140,6 @@ const Checkout = () => {
           {/* Additional content goes here */}
         </div>
       </div>
-      <footer className="footer">
-        <div className="footer-content">
-          <p>&copy; 2023 Agri Soko</p>
-        </div>
-      </footer>
     </div></div>
   );
 };

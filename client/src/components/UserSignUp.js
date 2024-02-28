@@ -100,7 +100,7 @@ function UserSignUp({ setUserId ,setRole }) {
             navigate(`/farmerdashboard`);
           }
           else if (data.role === 'admin') {
-            navigate(`/users`);
+            navigate(`/admin`);
           }else(navigate('/products'));
         } else {
           console.error("User ID is not defined in the response:", data);

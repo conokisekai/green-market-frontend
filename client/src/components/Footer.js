@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <div className="footer-container">
-      <div className="links flex">
+      <div className="flex space-between">
         <div className="mr-4">
           <b>Company <br/></b>
           About us<br/>
