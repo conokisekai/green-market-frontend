@@ -1,3 +1,13 @@
+.farmerdashboard{
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+
 .cardf1 {
   display: flex;
   flex-wrap: wrap;
@@ -296,4 +306,10 @@ justify-content:center;
   font-size: larger;
   font-style: oblique;
   font-weight: bold;
+}
+.farmertop {
+  display: flex;
+  align-items: center; /* Center vertically */
+
+  justify-content:end;
 }

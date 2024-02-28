@@ -1,8 +1,6 @@
 
 
 
-/* Container styles */
-/* Container styles */
 .container {
   display: flex;
   flex-direction: column;
@@ -10,7 +8,6 @@
   justify-content: center;
   width: 13cm; /* Set width to 13cm */
   height: 13cm; /* Set height to 13cm */
-  background-color: #eaf5f6;
   box-sizing: border-box;
   margin: 0 auto; /* Center horizontally */
   padding: 0;

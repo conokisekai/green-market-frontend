@@ -1,15 +1,13 @@
-
-import React, { useState,useEffect} from "react";
-import { FaHeart,FaUser } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
 import "./farmerDashboard.css";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 function CustomerCard(props) {
   return (
     <div className="customer">
       <div className="info">
-        <img src={props.image} height="40px" width="40px" alt="customer" />
+        <img src={props.image} height="40px" width="40px" alt={props.name} />
         <div>
           <h4>{props.name}</h4>
           <small>{props.position}</small>
@@ -24,33 +22,14 @@ function CustomerCard(props) {
   );
 }
 
-function FarmerDashboard({userId}) {
+function FarmerDashboard({ userId, users }) {
   const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [slides] = useState([
-    {
-      imageUrl:
-        "https://i.pinimg.com/originals/28/d1/e2/28d1e28d41cb6ef0ee7d301441433c36.gif",
-      title: "Laurence Ipsen",
-      description: "",
-    },
-    {
-      imageUrl:
-        "https://i.pinimg.com/originals/59/a5/a0/59a5a0ca931fe2db6756cd7f9fb1fec5.gif",
-      title: "Lorem ipsum 2",
-      description: "",
-    },
-    {
-      imageUrl:
-        "https://i.pinimg.com/originals/b0/aa/3a/b0aa3ac0c38ff1174cdef4ced5d8a5c3.gif",
-      title: "Lorem ipsum 3",
-      description: "",
-    },
-  ]);
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const [products,setProducts]=useState([]);
-  const [filteredProducts,setFilteredProducts]=useState([]);
- 
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 12;
+
   useEffect(() => {
     fetch(`/get_product_user_id/${userId}`)
       .then((response) => {
@@ -61,16 +40,15 @@ function FarmerDashboard({userId}) {
       })
       .then((data) => {
         setProducts(data.products);
-        console.log(data.product)
+        console.log(data.product);
       })
       .catch((error) => {
         console.error("Failed to fetch products. Please try again:", error);
       });
-       console.log(userId)
+    console.log(userId);
   }, [userId]);
 
-
-    const handleSearch = (searchTerm) => {
+  const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
     if (searchTerm.trim() !== "") {
       const filteredProducts = products.filter((product) =>
@@ -81,28 +59,6 @@ function FarmerDashboard({userId}) {
       setFilteredProducts([]);
     }
   };
-  useEffect(() => {
-    const autoSlideInterval = setInterval(() => {
-      setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000); 
-
-    return () => clearInterval(autoSlideInterval);
-  }, [slides.length]);
-
-  const prevSlide = () => {
-    setCurrentSlideIndex(
-      (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
-    );
-  };
-
-  const nextSlide = () => {
-    setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
-
-  const updateSlideNav = (index) => {
-    setCurrentSlideIndex(index);
-  };
-
 
   const handleDeleteProduct = async (product_id) => {
     try {
@@ -112,9 +68,9 @@ function FarmerDashboard({userId}) {
           'Content-Type': 'application/json',
         },
       });
-  
+
       const data = await response.json();
-  
+
       if (response.ok) {
         setProducts((prevProducts) => prevProducts.filter((product) => product.product_id !== product_id));
       } else {
@@ -124,111 +80,261 @@ function FarmerDashboard({userId}) {
       console.error('An error occurred while communicating with the server');
     }
   };
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = (searchTerm.trim() === "" ? products : filteredProducts).slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil((searchTerm.trim() === "" ? products.length : filteredProducts.length) / productsPerPage);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
-    <div >
-      <input type="checkbox" id="mobilmenu" />
+    <div className="farmerdashboard">
       <div className="farmertop">
-      <div className="searchfarmerproduct">
-      <SearchBar onSearch={handleSearch} products={products}/>
+        <div className="searchfarmerproduct">
+          <SearchBar onSearch={handleSearch} products={products} />
+        </div>
       </div>
-        <div className="menufarmer">
-          <ul className="flex">
-            <li className="mr-4">
-            <Link to="/userprofile"><FaUser style={{ fontSize: '35px', color: '#00ff00' }} /></Link>
-            </li>
-          </ul>
+      <div>
+        <div className="farmer">
+          <h3 >Farmer dashboard</h3>
         </div>
-    </div>
-  <div>
-    <div className="farmer">
-         <h3 >Farmer dashboard</h3>
-    </div>
-    <div className="slider">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`slide ${index === currentSlideIndex ? "active" : ""}`}
-        >
-          <img src={slide.imageUrl} alt=" Description" />
-          <h2 className="slide-title">{slide.title}</h2>
-          <p className="slide-desc">{slide.description}</p>
-        </div>
-      ))}
-      <button className="arrow prev" onClick={prevSlide}>
-        Prev
-      </button>
-      <button className="arrow next" onClick={nextSlide}>
-        Next
-      </button>
-      <ul className="slide-nav">
-        {slides.map((slide, index) => (
-          <li
-            key={index}
-            className={`nav-item ${
-              index === currentSlideIndex ? "item-active" : ""
-            }`}
-            onClick={() => updateSlideNav(index)}
-          ></li>
-        ))}
-      </ul>
-    </div>
-  </div>
+      </div>
 
       <div className="flex">
-      <div>
-        <div className="bg-navy text-white rounded-l-lg p-4">
-          <div className={`sidebar ${isSidebarOpen ? "" : "small"}`}>
-            <div className="text-6xl font-bold">Agri-Soko </div>
-            <Link to="/products">Dashboard</Link><br/>
-            <Link to="/settings">Settings</Link><br/>
-            <Link to="/billing">Billing</Link><br/>
-            <Link to="/userprofile">My Profile</Link><br/>
-            <Link to="/farmerproductform" className="add">Add Product</Link>
+        <div>
+          <div className="bg-navy text-white rounded-l-lg p-4">
+            <div className={`sidebar ${isSidebarOpen ? "" : "small"}`}>
+              <div className="text-6xl font-bold">Agri-Soko </div>
+              <Link to="/products">Dashboard</Link><br />
+              <Link to="/settings">Settings</Link><br />
+              <Link to="/billing">Billing</Link><br />
+              <Link to="/userprofile">My Profile</Link><br />
+              <Link to="/farmerproductform" className="add">Add Product</Link>
+            </div>
+          </div>
+          <div className="customers">
+            <div className="card">
+              <div className="card-header">
+                <h2>New Customers</h2>
+                <button>See all <span className="fas fa-arrow-right"></span></button>
+              </div>
+              {users.length > 0 ? (
+                users.map((user, index) => (
+                  <div className="card-body" key={index}>
+                    <CustomerCard name={user.username} position={user.role} image={<img src={user.image_link} alt={user.username} />} />
+                  </div>
+                ))
+              ) : (
+                <p>Loading data....</p>
+              )}
+            </div>
           </div>
         </div>
-        <div className="customers">
-      <div className="card">
-        <div className="card-header">
-          <h2>New Customers</h2>
-          <button>See all <span className="fas fa-arrow-right"></span></button>
-        </div>
-        <div className="card-body">
-          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Malik Abushabab" position="CEO" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="John Doe" position="Manager" image="https://bit.ly/3bvT89p" />
-          <CustomerCard name="Jane Smith" position="Designer" image="https://bit.ly/3bvT89p" />
-        </div>
-      </div>
-    </div>
-    </div>
 
-      <div className={`icerik ${isSidebarOpen ? "" : "small"}`}>
-        <div className="ust"></div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
-        {(searchTerm.trim() === "" ? products : filteredProducts).slice(0, 16).map((product) => (
-
-            <div className="boxfarmer" key={product.product_id}>
-              <img
-                src={product.image_link}
-                alt={product.product_name}
-                className="object-cover rounded-md border border-gray-300 h-48 w-full"
-              />
-              <div className="des">
-                Description: {product.description}<br/>
+        <div className={`icerik ${isSidebarOpen ? "" : "small"}`}>
+          <div className="ust"></div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+            {currentProducts.map((product) => (
+              <div className="boxfarmer" key={product.product_id}>
+                <img
+                  src={product.image_link}
+                  alt={product.product_name}
+                  className="object-cover rounded-md border border-gray-300 h-48 w-full"
+                />
+                <div className="des">
+                  {product.description}<br />
+                </div>
+                <button className="btn-9" onClick={() => handleDeleteProduct(product.product_id)}>
+                  Delete Product
+                </button>
               </div>
-              <button className="btn-9"onClick={() => handleDeleteProduct(product.product_id)}>
-               Delete Product
-             </button>
-            </div>
-          ))}
+            ))}
+          </div>
+          <div className="pagination">
+            <button onClick={handlePrevPage} disabled={currentPage === 1} className="btn-9">Previous</button>
+            <span>{currentPage}/{totalPages}</span>
+            <button onClick={handleNextPage} disabled={currentPage === totalPages} className="btn-9">Next</button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
 
 export default FarmerDashboard;
+
+// import React, { useState,useEffect} from "react";
+// import { FaUser } from 'react-icons/fa';
+// import "./farmerDashboard.css";
+// import { Link} from "react-router-dom";
+// import SearchBar from "./SearchBar";
+
+
+// function CustomerCard(props) {
+//   return (
+//     <div className="customer">
+//       <div className="info">
+//         <img src={props.image} height="40px" width="40px" alt="customer" />
+//         <div>
+//           <h4>{props.name}</h4>
+//           <small>{props.position}</small>
+//         </div>
+//       </div>
+//       <div className="contact">
+//         <span className="fas fa-user-circle"></span>
+//         <span className="fas fa-comment"></span>
+//         <span className="fas fa-phone-alt"></span>
+//       </div>
+//     </div>
+//   );
+// }
+
+// function FarmerDashboard({userId,users}) {
+//   const [isSidebarOpen] = useState(true);
+//   const [searchTerm, setSearchTerm] = useState("");
+//   const [products,setProducts]=useState([]);
+//   const [filteredProducts,setFilteredProducts]=useState([]);
+ 
+//   useEffect(() => {
+//     fetch(`/get_product_user_id/${userId}`)
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         return response.json();
+//       })
+//       .then((data) => {
+//         setProducts(data.products);
+//         console.log(data.product)
+//       })
+//       .catch((error) => {
+//         console.error("Failed to fetch products. Please try again:", error);
+//       });
+//        console.log(userId)
+//   }, [userId]);
+
+
+//     const handleSearch = (searchTerm) => {
+//     setSearchTerm(searchTerm);
+//     if (searchTerm.trim() !== "") {
+//       const filteredProducts = products.filter((product) =>
+//         product.category_name.toLowerCase().includes(searchTerm.toLowerCase())
+//       );
+//       setFilteredProducts(filteredProducts);
+//     } else {
+//       setFilteredProducts([]);
+//     }
+//   };
+
+//   const handleDeleteProduct = async (product_id) => {
+//     try {
+//       const response = await fetch(`/delete_product/${product_id}`, {
+//         method: 'DELETE',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+  
+//       const data = await response.json();
+  
+//       if (response.ok) {
+//         setProducts((prevProducts) => prevProducts.filter((product) => product.product_id !== product_id));
+//       } else {
+//         console.error(data.error || 'Something went wrong');
+//       }
+//     } catch (error) {
+//       console.error('An error occurred while communicating with the server');
+//     }
+//   };
+//   return (
+//     <div className="farmerdashboard" >
+//       <div className="farmertop">
+//       <div className="searchfarmerproduct">
+//       <SearchBar onSearch={handleSearch} products={products}/>
+//       </div>
+//         <div className="menufarmer">
+//           <ul className="flex">
+//             <li className="mr-4">
+//             <Link to="/userprofile"><FaUser style={{ fontSize: '35px', color: 'rgba(0, 0, 0, 0.514)' }} /></Link>
+//             </li>
+//           </ul>
+//         </div>
+//     </div>
+//   <div>
+//     <div className="farmer">
+//          <h3 >Farmer dashboard</h3>
+//     </div>
+    
+//   </div>
+
+//       <div className="flex">
+//       <div>
+//         <div className="bg-navy text-white rounded-l-lg p-4">
+//           <div className={`sidebar ${isSidebarOpen ? "" : "small"}`}>
+//             <div className="text-6xl font-bold">Agri-Soko </div>
+//             <Link to="/products">Dashboard</Link><br/>
+//             <Link to="/settings">Settings</Link><br/>
+//             <Link to="/billing">Billing</Link><br/>
+//             <Link to="/userprofile">My Profile</Link><br/>
+//             <Link to="/farmerproductform" className="add">Add Product</Link>
+//           </div>
+//         </div>
+//         <div className="customers">
+//       <div className="card">
+//         <div className="card-header">
+//           <h2>New Customers</h2>
+//           <button>See all <span className="fas fa-arrow-right"></span></button>
+//         </div>
+//         {users.length > 0 ? (
+//       users.map((user, index) => (
+//         <div className="card-body"key={index}>
+//           <CustomerCard name={user.username} position={user.role} image={<img src={user.image_link} alt={user.username}/> }/>
+//         </div>
+//       ))
+//       ) : (
+//         <p>Loading data....</p>
+//       )
+//     }
+//       </div>
+//     </div>
+//     </div>
+
+//       <div className={`icerik ${isSidebarOpen ? "" : "small"}`}>
+//         <div className="ust"></div>
+//         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+//         {(searchTerm.trim() === "" ? products : filteredProducts).slice(0, 16).map((product) => (
+
+//             <div className="boxfarmer" key={product.product_id}>
+//               <img
+//                 src={product.image_link}
+//                 alt={product.product_name}
+//                 className="object-cover rounded-md border border-gray-300 h-48 w-full"
+//               />
+//               <div className="des">
+//                 Description: {product.description}<br/>
+//               </div>
+//               <button className="btn-9"onClick={() => handleDeleteProduct(product.product_id)}>
+//                Delete Product
+//              </button>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//     </div>
+//   );
+// }
+
+// export default FarmerDashboard;
 

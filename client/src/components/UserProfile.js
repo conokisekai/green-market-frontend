@@ -28,12 +28,11 @@ const UserProfile = ({ userId }) => {
 
 
   return (
+    <div className='cardy'>
     <div className="card-container">
       <span className="pro">{userDetails.role}</span>
       <div className="search-wrapper">
-        <label className="camera">
-              <img src={userDetails.image_link} alt={userDetails.username}/>
-        </label>
+          <img src={userDetails.image_link} alt={userDetails.username}/>
       </div>
       <h3>{userDetails.username}</h3>
       <h6>Email: {userDetails.email}</h6>
@@ -44,6 +43,7 @@ const UserProfile = ({ userId }) => {
         <input type="checkbox" id="online-status" />
         <span>Online</span>
       </label>
+    </div>
     </div>
   );
 };

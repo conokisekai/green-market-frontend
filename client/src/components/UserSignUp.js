@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import { useNavigate ,Link} from "react-router-dom";
 import "../App.css";
 
-function UserSignUp({ setUserId }) {
+function UserSignUp({ setUserId ,setRole }) {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({
     signUpImage: "",
@@ -76,7 +76,11 @@ function UserSignUp({ setUserId }) {
         },
         body: JSON.stringify({
           password: formData.signInPassword,
-          [formData.signInIdentifier.includes('@') ? 'email' : 'phone']: formData.signInIdentifier,
+          [formData.signInIdentifier.includes('@')
+          ? 'email'
+          : formData.signInIdentifier.match(/^\d+$/) 
+          ? 'phone'
+          : 'username']: formData.signInIdentifier, 
         }),
       });
 
@@ -87,6 +91,7 @@ function UserSignUp({ setUserId }) {
         // Ensure that data.user_id is not undefined or null
         if (data.user_id != null) {
           setUserId(data.user_id);
+          setRole(data.role);
           console.log('Welcome to Agri-soko');
           console.log(data.role);
           console.log(data.user_id)

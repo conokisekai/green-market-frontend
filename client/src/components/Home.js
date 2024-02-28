@@ -10,13 +10,14 @@ import { Contact } from "./Homepage/contact";
 import JsonData from "../data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./homex.css";
+import Footer from "./Footer";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
   speedAsDuration: true,
 });
 
-const Homex = () => {
+const Home= () => {
   const [landingPageData, setLandingPageData] = useState({});
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const Homex = () => {
   }, []);
 
   return (
-    <div>
+    <div className="home">
       <Navigation />
       <Header data={landingPageData.Header} />
       <About data={landingPageData.About} />
@@ -37,4 +38,4 @@ const Homex = () => {
   );
 };
 
-export default Homex;
+export default Home;
