@@ -9,16 +9,7 @@
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
-.card-container {
-  background-color: #ffffff;
-  font-family: Montserrat, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-height: auto;
-  margin: 0;
-}
+/*  */
 
 h3 {
   margin: 15px 0;
@@ -36,7 +27,7 @@ p {
 }
 
 .card-container {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   border-radius: 5px;
   box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
   color: #000000;

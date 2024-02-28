@@ -425,6 +425,12 @@ body {
   .dark-mode .homepage{
 	color: #000000;
   }
+  /* .dark-mode .product-card{
+	color: #000000;
+  }  */
+  /* .dark-mode .checkout{
+	color: #FFFFFF;
+  } */
   .theme-switch__input {
 	display: none;
   }

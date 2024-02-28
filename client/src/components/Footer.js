@@ -1,7 +1,7 @@
 // Import Tailwind CSS classes in your component file
 import React from 'react';
 import './footer.css'; // Assuming footer.css is in the same directory as this component
-import { Link } from 'react-router-dom';
+
 
 function Footer() {
   return (
@@ -29,14 +29,10 @@ function Footer() {
           Lead generate<br/>
           Remote Collaboration
         </div>
-      </div>
-      <div className="left-bottom flex items-start ">
+        <div className="mr-10">
         <div className="weekly-schedule">
           <div className="calendar">
             <div className="day-and-activity activity-one flex">
-              <div className="day mr-4">
-                {/* <p>7 days10 sellers</p> */}
-              </div>
               <div className="activity mr-4">
                 <h2>Customers</h2>
                 <div className="participants flex">
@@ -52,6 +48,8 @@ function Footer() {
           </div>
         </div>
       </div>
+      </div>
+      
     </div>
   );
 }

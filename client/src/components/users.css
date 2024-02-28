@@ -84,7 +84,7 @@
     border-radius: 50%; /* Make the image circular */
   }
   
-  .camera {
+  .search-wrapper {
     width: 170px; /* Increase the width */
     height: 170px; /* Increase the height */
     margin-left: 100px;

@@ -64,7 +64,7 @@ function Cart({ userId }) {
 
   return (
     <div className="cart-page">
-    <div className="bg-gray-100">
+    <div >
       <div className="container mx-auto mt-10">
         <div className="flex shadow-md my-10">
           <div className="custom-container">
@@ -102,13 +102,18 @@ function Cart({ userId }) {
               <Link to="/products">Continue Shopping</Link>
             </div>
           </div>
-          <div id="summary" className="w-1/4 px-8 py-10">
+          <div id="summary" className="w-1/3 px-8 py-10">
             <div className="details-in-container">
               <div className="details">
                 <div className="wrapper">
                   <h3 className="font-semibold">YOUR TOTAL AMOUNT</h3>
                   <p><b>Ksh {calculateTotalPrice()}</b></p>
+                  
                 </div>
+                <button className="bg-red-400 hover:bg-goldenrod-600 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm">
+                  <Link to="/checkout">Proceed to Payment</Link>
+                </button>
+
               </div>
             </div>
           </div>
