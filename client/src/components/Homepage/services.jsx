@@ -3,7 +3,7 @@ import React from "react";
 export const Services = (props) => {
   return (
     <div id="services" className="text-center">
-      <div className="container">
+      <div className="container-s">
         <div className="section-title">
           <h2>Our Products</h2>
           

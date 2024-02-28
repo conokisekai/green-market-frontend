@@ -447,4 +447,14 @@ body {
   .theme-switch__input:checked + .theme-switch__label span {
 	color: #fff; /* Change this to your preferred checked switch label text color */
   }
-
+  body {
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	background-color: #EAF5F6;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+  }
+  

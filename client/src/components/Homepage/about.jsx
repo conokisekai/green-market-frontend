@@ -2,7 +2,7 @@ import React from "react";
 export const About = (props) => {
   return (
     <div id="about">
-      <div className="container">
+      <div className="container-r">
         <div className="row">
           <div className="col-xs-12 col-md-6">
             {" "}

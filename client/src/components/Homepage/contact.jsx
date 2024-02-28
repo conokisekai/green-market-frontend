@@ -38,7 +38,7 @@ export const Contact = (props) => {
   return (
     <div>
       <div id="contact">
-        <div className="container">
+        <div className="container-c">
           <div className="col-md-8">
             <div className="row">
               <div className="section-title">
@@ -150,14 +150,6 @@ export const Contact = (props) => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div id="footer">
-        <div className="container text-center">
-          <p>
-            &copy; 2023 . Design by{" geeks"}
-        
-          </p>
         </div>
       </div>
     </div>
