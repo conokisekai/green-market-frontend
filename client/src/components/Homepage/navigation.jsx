@@ -64,7 +64,7 @@ export const Navigation = (props) => {
               </a>
             </li>
             <li>
-              <Link to="/usersignup"> Signup</Link>
+              <Link to="/usersignup"> Signup & Login</Link>
             </li>
           </ul>
         </div>
