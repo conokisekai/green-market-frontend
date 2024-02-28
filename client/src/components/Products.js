@@ -90,7 +90,7 @@ function Products(users) {
                     alt={product.product_name}
                     className="object-cover rounded-md border border-gray-300 h-48 w-full"
                   />
-                  <div className="des">Description: {product.description}</div>
+                  <div className="des">{product.description}</div>
                 </div>
               </Link>
             ))}
