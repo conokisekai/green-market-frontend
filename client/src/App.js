@@ -15,7 +15,7 @@ import Users from './components/Users';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-
+import AllProducts from './components/AllProducts';
 import Checkout from './components/Checkout';
 function App() {
   const [users,setUsers]=useState([])
@@ -73,6 +73,7 @@ function App() {
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
           <Route path="/products" element={<Products role={role} users={users}/>} />
+          <Route path="/allproducts" element={<AllProducts/>} />
           <Route path="/products/:product_id" element={<Product userId={userId} />} />
           <Route path="/farmerdashboard" element={<FarmerDashboard userId={userId} role={role} users={users}/>} />
           <Route path="/farmerproductform" element={<FarmerProductForm userId={userId} />} />
@@ -81,6 +82,7 @@ function App() {
           <Route path="/otp" element={<OTPVerification />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/checkout" element={<Checkout />} />
+          
           
         </Routes>
         <Footer/>

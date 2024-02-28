@@ -1,6 +1,7 @@
 // Import Tailwind CSS classes in your component file
 import React from 'react';
 import './footer.css'; // Assuming footer.css is in the same directory as this component
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
@@ -43,7 +44,7 @@ function Footer() {
                   <img className="w-8 h-8 rounded-full mr-2" src="https://avatars.githubusercontent.com/u/70768898?v=4" alt="" />
                 </div>
               </div>
-              <button className="btn">Join</button>
+              <button className="btn"><Link to="/usersignup">Join</Link></button>
             </div>
           </div>
         </div>

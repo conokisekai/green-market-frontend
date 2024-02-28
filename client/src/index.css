@@ -358,9 +358,11 @@ body {
   .dark-mode .card-container,
   .dark-mode .cardf1,
   .dark-mode .box,
+  .dark-mode .allbox,
   .dark-mode .boxProduct,
   .dark-mode .boxfarmer,
   .dark-mode .card,
+  .dark-mode .product-card,
   .dark-mode .online,
   .dark-mode .container,
   .dark-mode .in-container,
@@ -425,12 +427,6 @@ body {
   .dark-mode .homepage{
 	color: #000000;
   }
-  /* .dark-mode .product-card{
-	color: #000000;
-  }  */
-  /* .dark-mode .checkout{
-	color: #FFFFFF;
-  } */
   .theme-switch__input {
 	display: none;
   }

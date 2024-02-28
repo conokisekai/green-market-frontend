@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -6,8 +5,7 @@ import SearchBar from "./SearchBar";
 import "./products.css";
 import Page from "./ThemeSwitch";
 
-
-function Products(users) {
+function Products() {
   const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
@@ -20,7 +18,6 @@ function Products(users) {
       .then((response) => response.json())
       .then((data) => {
         setProducts(data.products);
-        console.log(data);
       })
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
@@ -29,7 +26,8 @@ function Products(users) {
     setSearchTerm(searchTerm);
     if (searchTerm.trim() !== "") {
       const filteredProducts = products.filter((product) =>
-        product.product_name.toLowerCase().includes(searchTerm.toLowerCase())
+        product.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.category_name.toLowerCase().includes(searchTerm.toLowerCase()) 
       );
       setFilteredProducts(filteredProducts);
     } else {
@@ -64,7 +62,7 @@ function Products(users) {
   return (
     <div className="products">
       <div className="top">
-        <div className="search  ">
+        <div className="search">
           <SearchBar onSearch={handleSearch} products={products} />
         </div>
         <div className="menu ml-11">
@@ -81,7 +79,7 @@ function Products(users) {
         <div className="sideContainer"></div>
         <div className={`icerik ${isSidebarOpen ? "" : "small"}`}>
           <div className="ust"></div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-4">
+          <div className="grid grid-cols-5 gap-3 p-4">
             {currentProducts.map((product) => (
               <Link to={`/products/${product.product_id}`} key={product.product_id}>
                 <div className="box">
@@ -90,14 +88,14 @@ function Products(users) {
                     alt={product.product_name}
                     className="object-cover rounded-md border border-gray-300 h-48 w-full"
                   />
-                  <div className="des">Description: {product.description}</div>
+                  <div className="des">{product.description}</div>
                 </div>
               </Link>
             ))}
           </div>
           {/* Pagination controls */}
           <div className="pagination">
-            <button onClick={handlePrevPage} disabled={currentPage === 1}className="btn-9">
+            <button onClick={handlePrevPage} disabled={currentPage === 1} className="btn-9">
               Previous
             </button>
             <span>
@@ -114,6 +112,8 @@ function Products(users) {
 }
 
 export default Products;
+
+
 
 // import React, { useState,useEffect } from "react";
 // import { FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa';

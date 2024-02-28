@@ -9,9 +9,9 @@ function Navbar() {
       <nav className="navbar">
       <Link to="/homepage">Home</Link>
       <Link to="/usersignup">Signup & Login</Link>
-        {/* <Link to="/products">Products</Link>
-        <Link to="/farmerdashboard">FarmerDashboard</Link>
-        <Link to="/users">Users</Link> */}
+        <Link to="/allproducts">All Products</Link>
+        {/* <Link to="/farmerdashboard">FarmerDashboard</Link> */}
+        <Link to="/users">Users</Link>
         <Link to="/settings">
           <FaCog className="inline-block" style={{ fontSize: '18px', color: '#fff' }} />
           Settings

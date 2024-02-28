@@ -52,13 +52,16 @@ function FarmerDashboard({ userId, users }) {
     setSearchTerm(searchTerm);
     if (searchTerm.trim() !== "") {
       const filteredProducts = products.filter((product) =>
-        product.category_name.toLowerCase().includes(searchTerm.toLowerCase())
+        product.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.category_name.toLowerCase().includes(searchTerm.toLowerCase()) 
       );
       setFilteredProducts(filteredProducts);
     } else {
       setFilteredProducts([]);
     }
+    setCurrentPage(1); // Reset to the first page when searching
   };
+
 
   const handleDeleteProduct = async (product_id) => {
     try {
