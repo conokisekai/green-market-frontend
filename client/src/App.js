@@ -12,9 +12,9 @@ import OTPVerification from './components/OTPVerification';
 import ResetPassword from './components/ResetPassword';
 import Settings from './components/Settings';
 import Users from './components/Users';
-import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import Home from './components/Home';
 import AllProducts from './components/AllProducts';
 import Checkout from './components/Checkout';
 function App() {
@@ -66,11 +66,12 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/" element={<Home/>} />
           <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} setRole={setRole}/>} />
           <Route path="/users" element={<Users setUsers={setUsers} users={users} error={error}/>} />
-          <Route path="/homepage" element={<HomePage/>} />
           <Route path="/checkout" element={<Checkout/>} />
+          <Route path="/usersignup" element={<UserSignUp setUserId={setUserId}/>} />
+          <Route path="/users" element={<Users/>} />
           <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
           <Route path="/products" element={<Products role={role} users={users}/>} />
           <Route path="/allproducts" element={<AllProducts/>} />

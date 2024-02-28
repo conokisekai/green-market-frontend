@@ -1,30 +1,41 @@
-// Home.js
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Navigation } from "./Homepage/navigation";
+import { Header } from "./Homepage/header";
+import { About } from "./Homepage/about";
+import { Services } from "./Homepage/services";
+import { Gallery } from "./Homepage/gallery";
+import { Testimonials } from "./Homepage/testimonials";
+import { Team } from "./Homepage/Team";
+import { Contact } from "./Homepage/contact";
+import JsonData from "../data/data.json";
+import SmoothScroll from "smooth-scroll";
+import "./homex.css";
+import Footer from "./Footer";
 
-function Home() {
+export const scroll = new SmoothScroll('a[href*="#"]', {
+  speed: 1000,
+  speedAsDuration: true,
+});
+
+const Home= () => {
+  const [landingPageData, setLandingPageData] = useState({});
+
+  useEffect(() => {
+    setLandingPageData(JsonData);
+  }, []);
+
   return (
-    <div className="bg-green-900 min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-8 text-white">Welcome to Our Market</h1>
-        <div className="space-x-4">
-        <Link to="/products">Prodece</Link>
-        <Link to="/farmerdashboard">FarmerDashboard</Link>
-          <Link to="/usersignup" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Signup as User
-          </Link> 
-          <Link to="/users" >
-            Users
-          </Link> 
-          <Link to="/homepage" >
-            Home
-          </Link> 
-        </div>
-      </div>
+    <div className="home">
+      <Navigation />
+      <Header data={landingPageData.Header} />
+      <About data={landingPageData.About} />
+      <Services data={landingPageData.Services} />
+      <Gallery data={landingPageData.Gallery} />
+      <Testimonials data={landingPageData.Testimonials} />
+      <Team data={landingPageData.Team} />
+      <Contact data={landingPageData.Contact} />
     </div>
   );
-}
+};
 
 export default Home;
-
-

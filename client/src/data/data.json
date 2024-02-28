@@ -1,0 +1,205 @@
+{
+  "Header": {
+    "title": "",
+    "paragraph": "One of Kenya's Finest and upcoming E-Farmingn sites for buying and selling agricultural products for Farmers."
+  },
+  "About": {
+    "paragraph": "Agrisoko revolutionizes farming with buyers using advanced technology, connecting farmers to markets efficiently, fostering sustainable agricultural practices.",
+    "Why": [
+      "We Offer The Best Products",
+      "Good Customer ",
+      "",
+      ""
+    ],
+    "Why2": [
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "Gallery": [
+    {
+      "title": "Project Title",
+      "largeImage": "img/ortfolio/01-l",
+      "smallImage": "img/portfolio/0"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/02-lg",
+      "smallImage": "img/portfolio/02-s.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/0arge.jpg",
+      "smallImage": "img/portfolio/mall.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/0arge.jpg",
+      "smallImage": "img/portfolio/mall.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/05ge.jpg",
+      "smallImage": "img/portfolio/05-sll.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/06-lge.jpg",
+      "smallImage": "img/portfolio/06all.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/07-ge.jpg",
+      "smallImage": "img/portfolio/07-ll.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/08rge.jpg",
+      "smallImage": "img/portfolio/0mall.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/09-l e.jpg",
+      "smallImage": "img/portfolio/09-ll.jpg"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-wordpress",
+      "name": "fruits",
+      "text": "."
+    },
+    {
+      "icon": "fa fa-cart-arrow-down",
+      "name": "livestocks",
+      "text": "."
+    },
+    {
+      "icon": "fa fa-cloud-download",
+      "name": "vegetables",
+      "text": ""
+    },
+    {
+      "icon": "fa fa-language",
+      "name": "meat and poultry",
+      "text": ""
+    },
+    {
+      "icon": "fa fa-plane",
+      "name": "flowers",
+      "text": ""
+},
+    {
+      "icon": "fa fa-pie-chart",
+      "name": "herbs",
+      "text": ""
+      
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/farmer1.jpg",
+      "text": "Agrisoko helps me find good food from farmers. I buy fresh fruits and vegetables easily.",
+      "name": "Pricilla Wamboi"
+    },
+    {
+      "img": "img/testimonials/farmer2.jpg",
+      "text": "Buying food with Agrisoko is easy. I get what I need quickly and it's fresh",
+      "name": "Selina Jepkorir"
+    },
+    {
+      "img": "img/testimonials/farmer3.jpg",
+      "text": "I like Agrisoko because it tells me where my food comes from. I trust it",
+      "name": "Joe Odwar"
+    },
+    {
+      "img": "img/testimonials/farmer4.jpg",
+      "text": " Agrisoko makes it easy to buy food. I order and it comes to me on time.",
+      "name": "Oscar Kyalo "
+    },
+    {
+      "img": "img/testimonials/farmer5.jpg",
+      "text": "I use Agrisoko to talk to farmers and buy fresh food. It's simple and good",
+      "name": "Angie Njoki "
+    },
+    {
+      "img": "img/testimonials/farmer6.jpg",
+      "text": "",
+      "name": "Adrian Efen "
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "John ",
+      "job": "Director"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Conrad",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/willy.jpg",
+      "name": "Willy",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/04.jpg",
+      "name": "Jim",
+      "job": "Project Manager"
+    },
+    {
+      "img": "img/team/faith.jpg",
+      "name": "Faith ",
+      "job": "Director"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Owen",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/03.jpg",
+      "name": "Amaar",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/khalid.jpg",
+      "name": "Khalid",
+      "job": "Project Manager"
+    }
+  ],
+  "Contact": {
+    "address": "Vedic Hse, 3rd Flr Moi Ave, 4994-00506 Nyayo Stadium.Nairobi",
+    "phone": "+254720000000",
+    "email": "agri-soko@company.com",
+    "facebook": "fb.com",
+    "twitter": "twitter.com",
+    "youtube": "youtube.com"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    }
+  ]
+}

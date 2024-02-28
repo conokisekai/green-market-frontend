@@ -102,7 +102,7 @@ function FarmerProductForm({userId}) {
   return (
     <div id="product-form-container" className="container">
       <div className="row justify-content-center">
-        <div className="col-md-6">
+        <div className="col-md-20 d-flex justify-content-center align-items-center text-center">
           <form onSubmit={handleSubmit} className="product-form">
             <div className="form-group">
               <label htmlFor="product_name">Name</label>
