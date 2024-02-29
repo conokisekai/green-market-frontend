@@ -116,7 +116,7 @@ function Products({ userId }) {
         <div className="sideContainer"></div>
         <div className={`icerik ${isSidebarOpen ? "" : "small"}`}>
           <div className="ust"></div>
-          <div className="grid grid-cols-4 gap-3 p-4">
+          <div className="grid grid-cols-5 gap-3 p-4">
             {currentProducts.map((product) => (
               <div key={product.product_id}>
                 <div className="boxy">
