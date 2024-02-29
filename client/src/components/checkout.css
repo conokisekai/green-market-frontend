@@ -92,26 +92,6 @@
   background-color: #45a049;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #333;
-  color: white;
-  text-align: left;
-  padding: 10px 20px;
-}
-
-.footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.footer-content p {
-  margin: 0;
-}
-
 /* Added CSS for bottom-left positioning */
 .bottom-left-container {
   position: absolute;

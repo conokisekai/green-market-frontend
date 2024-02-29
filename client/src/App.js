@@ -76,7 +76,7 @@ function App() {
           <Route path="/users" element={<Users/>} />
           <Route path="/admin" element={<Admin/>} />
           <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>} />
-          <Route path="/products" element={<Products role={role} users={users}/>} />
+          <Route path="/products" element={<Products role={role} users={users} userId={userId}/>} />
           <Route path="/allproducts" element={<AllProducts/>} />
           <Route path="/products/:product_id" element={<Product userId={userId} />} />
           <Route path="/farmerdashboard" element={<FarmerDashboard userId={userId} role={role} users={users}/>} />

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -6,12 +5,15 @@ import SearchBar from "./SearchBar";
 import "./products.css";
 import Page from "./ThemeSwitch";
 
-function Products() {
+function Products({ userId }) {
   const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [quantity, setQuantity] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [productQuantities, setProductQuantities] = useState({});
   const productsPerPage = 15;
 
   useEffect(() => {
@@ -28,13 +30,47 @@ function Products() {
     if (searchTerm.trim() !== "") {
       const filteredProducts = products.filter((product) =>
         product.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.category_name.toLowerCase().includes(searchTerm.toLowerCase()) 
+        product.category_name.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredProducts(filteredProducts);
     } else {
       setFilteredProducts([]);
     }
     setCurrentPage(1); // Reset to the first page when searching
+  };
+
+  const handleAddToCart = (product) => {
+    console.log("Adding to cart...", userId, product.product_id, productQuantities);
+
+    const data = {
+      user_id: userId,
+      product_id: product.product_id,
+      quantity: productQuantities[product.product_id] || 1,
+    };
+
+    fetch("/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setAddedToCart(true);
+      })
+      .catch((error) => {
+        console.error("Error adding to cart:", error);
+        setAddedToCart(false);
+      });
+  };
+
+  const handleQuantityChange = (productId, newQuantity) => {
+    setProductQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [productId]: newQuantity,
+    }));
   };
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -80,32 +116,70 @@ function Products() {
         <div className="sideContainer"></div>
         <div className={`icerik ${isSidebarOpen ? "" : "small"}`}>
           <div className="ust"></div>
-          <div className="grid grid-cols-5 gap-3 p-4">
+          <div className="grid grid-cols-4 gap-3 p-4">
             {currentProducts.map((product) => (
-              <Link to={`/products/${product.product_id}`} key={product.product_id}>
-                <div className="box">
-                  <img
-                    src={product.image_link}
-                    alt={product.product_name}
-                    className="object-cover rounded-md border border-gray-300 h-48 w-full"
-                  />
+              <div key={product.product_id}>
+                <div className="boxy">
+                  <Link to={`/products/${product.product_id}`}>
+                    <img
+                      src={product.image_link}
+                      alt={product.product_name}
+                      className="object-cover rounded-md border border-gray-300 h-48 w-full"
+                    />
+                  </Link>
                   <div className="des">
-                    {product.description}<br/>
-                    <b>Ksh:{product.price }</b>
-                    </div>
+                  <div className="">
+                    {product.description}<br />
+                    <b>Ksh:{product.price}</b><br/>
+                    <b>Total: Ksh {product.price * (productQuantities[product.product_id] || 1)}</b>
+                  </div>
+                  <div className="cta">
+                    <label>
+                      Quantity:
+                      <input
+                        type="number"
+                        value={productQuantities[product.product_id] || 1}
+                        onChange={(e) =>
+                          handleQuantityChange(product.product_id, parseInt(e.target.value, 10) || 1)
+                        }
+                        min="1"
+                        className="border border-gray-300 px-2 py-1 mr-2"
+                      />
+                    </label>
+                    <button
+                      className="btn bg-blue-500 text-white hover:bg-blue-600"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      Add to Cart <FaShoppingCart className="ml-1" />
+                    </button>
+                    {addedToCart && (
+                      <div className="added-to-cart-message text-green-600 mt-2">
+                        <FaShoppingCart className="inline-block mr-1" /> Added to Cart!
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </Link>
+                </div>
+              </div>
             ))}
           </div>
           {/* Pagination controls */}
-          <div className="pagination">
-            <button onClick={handlePrevPage} disabled={currentPage === 1} className="btn-9">
+          <div className="pagination flex items-center justify-center mt-4">
+            <button
+              onClick={handlePrevPage}
+              disabled={currentPage === 1}
+              className="btn-9 bg-gray-300 mr-2"
+            >
               Previous
             </button>
-            <span>
+            <span className="text-gray-600">
               Page {currentPage} of {totalPages}
             </span>
-            <button onClick={handleNextPage} disabled={currentPage === totalPages} className="btn-9">
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+              className="btn-9 bg-gray-300 ml-2"
+            >
               Next
             </button>
           </div>
@@ -115,7 +189,12 @@ function Products() {
   );
 }
 
+
+
+
 export default Products;
+
+
 
 
 
