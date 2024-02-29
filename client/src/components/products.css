@@ -40,6 +40,10 @@
   }
   .cta{
     margin-top: auto;
+   
+  }
+  .cta .btn{
+    background-color: #45a049;
   }
   
   body {
@@ -172,5 +176,28 @@
     margin-top: 0.5rem;
   }
 }
+.btnp {
+  padding: 10px 20px;
+  background-color: #1abc27;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.btnp:hover {
+  background-color: #3da016;
+}
 
+.cardy .btnp {
+  background-color: #3de242;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cardy .btnp:hover {
+  background-color: #37e03f;
+}

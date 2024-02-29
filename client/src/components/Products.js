@@ -147,7 +147,7 @@ function Products({ userId }) {
                       />
                     </label>
                     <button
-                      className="btn bg-blue-500 text-white hover:bg-blue-600"
+                      className="btn  text-white hover:bg-blue-600"
                       onClick={() => handleAddToCart(product)}
                     >
                       Add to Cart <FaShoppingCart className="ml-1" />

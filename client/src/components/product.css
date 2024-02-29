@@ -39,7 +39,7 @@
 
 .btn {
   padding: 10px 20px;
-  background-color: #1abc9c;
+  background-color: #1abc27;
   color: white;
   border: none;
   border-radius: 5px;
@@ -47,11 +47,11 @@
 }
 
 .btn:hover {
-  background-color: #16a085;
+  background-color: #3da016;
 }
 
 .added-to-cart-message {
-  background-color: #1abc9c;
+  background-color: #0ddfb5;
   color: white;
   padding: 8px 16px;
   border-radius: 4px;
@@ -215,7 +215,7 @@ body {
 }
 
 .card-header button {
-  background-color: #4caf50;
+  background-color: #3cdf41;
   color: white;
   border: none;
   padding: 10px 24px;
@@ -224,7 +224,7 @@ body {
 }
 
 .card-header button:hover {
-  background-color: #45a049;
+  background-color: #42f04b;
 }
 
 .card-body {
