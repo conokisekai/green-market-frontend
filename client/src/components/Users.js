@@ -71,10 +71,6 @@ const Users = ({ users, error }) => {
               <h6>Phone: {user.phone}</h6>
               <h6>Address: {user.address}</h6>
               <h6>User Id: {user.user_id}</h6>
-              <label className='online'>
-                <input type="checkbox" id={`online-status-${index}`} />
-                <span>Online</span>
-              </label>
             </div>
           ))
         ) : (

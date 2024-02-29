@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export const Navigation = (props) => {
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-      <div className="container-nv">
-        <div className="navbar-header">
+      <div className="navigation">
+        <div className="first">
           <button
             type="button"
             className="navbar-toggle collapsed"
@@ -64,7 +64,7 @@ export const Navigation = (props) => {
               </a>
             </li>
             <li>
-              <Link to="/usersignup"> Signup & Login</Link>
+             <button> <Link to="/usersignup"> Get Started</Link></button>
             </li>
           </ul>
         </div>

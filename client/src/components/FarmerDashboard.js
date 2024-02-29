@@ -3,24 +3,6 @@ import "./farmerDashboard.css";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-function CustomerCard(props) {
-  return (
-    <div className="customer">
-      <div className="info">
-        <img src={props.image} height="40px" width="40px" alt={props.name} />
-        <div>
-          <h4>{props.name}</h4>
-          <small>{props.position}</small>
-        </div>
-      </div>
-      <div className="contact">
-        <span className="fas fa-user-circle"></span>
-        <span className="fas fa-comment"></span>
-        <span className="fas fa-phone-alt"></span>
-      </div>
-    </div>
-  );
-}
 
 function FarmerDashboard({ userId, users }) {
   const [isSidebarOpen] = useState(true);
@@ -109,45 +91,27 @@ function FarmerDashboard({ userId, users }) {
         </div>
       </div>
       <div>
-        <div className="farmer">
-          <h3 >Farmer dashboard</h3>
-        </div>
+      <div className="farmer" >
+        <h3 className="text-2xl" style={{ fontFamily: 'Times New Roman', fontSize: '40px' }}>Farmer dashboard</h3>
       </div>
 
-      <div className="flex">
+      </div>
+
+      <div className="flex"> 
         <div>
           <div className="bg-navy text-white rounded-l-lg p-4">
-            <div className={`sidebar ${isSidebarOpen ? "" : "small"}`}>
+            <div className="dashboard-top">
               <div className="text-6xl font-bold">Agri-Soko </div>
-              <Link to="/products">Dashboard</Link><br />
-              <Link to="/settings">Settings</Link><br />
-              <Link to="/billing">Billing</Link><br />
-              <Link to="/userprofile">My Profile</Link><br />
-              <Link to="/farmerproductform" className="add">Add Product</Link>
+              <div><button className="btn-9"><Link to="/farmerproductform" className="add">Add Product</Link></button></div>
             </div>
           </div>
           <div className="customers">
-            <div className="card">
-              <div className="card-header">
-                <h2>New Customers</h2>
-                <button>See all <span className="fas fa-arrow-right"></span></button>
-              </div>
-              {users.length > 0 ? (
-                users.map((user, index) => (
-                  <div className="card-body" key={index}>
-                    <CustomerCard name={user.username} position={user.role} image={<img src={user.image_link} alt={user.username} />} />
-                  </div>
-                ))
-              ) : (
-                <p>Loading data....</p>
-              )}
-            </div>
-          </div>
+
         </div>
 
         <div className={`icerik ${isSidebarOpen ? "" : "small"}`}>
           <div className="ust"></div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 p-4">
             {currentProducts.map((product) => (
               <div className="boxfarmer" key={product.product_id}>
                 <img
@@ -171,6 +135,7 @@ function FarmerDashboard({ userId, users }) {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

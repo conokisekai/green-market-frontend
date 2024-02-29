@@ -39,10 +39,6 @@ const UserProfile = ({ userId }) => {
       <h6>Phone: {userDetails.phone}</h6>
       <h6>Address: {userDetails.address}</h6>
       {error && <p className="error-message">{error}</p>}
-      <label className='online'>
-        <input type="checkbox" id="online-status" />
-        <span>Online</span>
-      </label>
     </div>
     </div>
   );

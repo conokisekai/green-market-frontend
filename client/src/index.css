@@ -33,7 +33,7 @@ a {
 	margin: 15px 0;
 }
 
-button {
+.center-container button {
 	border-radius: 20px;
 	border: 1px solid #47cd73;
 	background-color: #74eb5f;
@@ -46,15 +46,15 @@ button {
 	transition: transform 80ms ease-in;
 }
 
-button:active {
+.center-container button:active {
 	transform: scale(0.95);
 }
 
-button:focus {
+.center-container button:focus {
 	outline: none;
 }
 
-button.ghost {
+.center-container button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
@@ -86,9 +86,11 @@ input {
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 850px;
+	width: 750px;
 	max-width: 100%;
 	min-height: 600px;
+	height: 50%;
+	
 }
 
 .form-container {
@@ -158,13 +160,16 @@ input {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
-	color: #3a3838;
+	color: #faf6f6;
 	position: relative;
 	left: -100%;
 	height: 100%;
 	width: 200%;
   	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
+	background-image: url(./components/login2.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover
 }
 
 .container.right-panel-active .overlay {
@@ -250,6 +255,7 @@ footer a {
     align-items: center; /* Center vertically */
     height: 10vh; /* Adjust the height as needed */
 	size: 15;
+
 }
 
 .bg-navy {
@@ -342,12 +348,12 @@ footer a {
 
 body {
 	transition: background-color 0.3s ease, color 0.3s ease;
-	background-color: #e0e0e0;
+	background-color: #257a0b00;
 	/* Add any other global styles for light mode here */
   }
   
   .dark-mode {
-	background-color: #262625; /* Change this to your preferred dark mode background color */
+	background-color:#204128;; /* Change this to your preferred dark mode background color */
 	color: #fff; /* Change this to your preferred dark mode text color */
   }
   
@@ -377,12 +383,12 @@ body {
   .dark-mode .camera{
 	color: wheat;
   }
-  .dark-mode .overlay{
+  /* .dark-mode .overlay{
 	background: #083d0a;
 	background: -webkit-linear-gradient(to right, #752bff, #a341ff);
 	background: linear-gradient(to right, #083d0a, #083d0a);
 	color: #f0d7d7;
-  }
+  } */
   .dark-mode form{
 	background-color: #646262;
 	color: #f3f0f0;
@@ -395,13 +401,18 @@ body {
 	background-color: #8b8787;
 	color:#f3f0f0;
   }
-  .dark-mode .form-h{
+  /* .dark-mode .form-h{
 	background: #083d0a;
 	background: -webkit-linear-gradient(to right, #752bff, #a341ff);
 	background: linear-gradient(to right, #083d0a, #083d0a);
 	color: #f0e4e4;
-  } 
-
+  }  */ 
+  .dark-mode.likiliki{
+	background-color: #083d0a;
+   }
+   .dark-mode .text-center{
+	color: #000;
+   }
   .dark-mode form button{
 	background-color: #ebb0b0;
 	color:#f7faf7;
@@ -427,6 +438,38 @@ body {
   .dark-mode .homepage{
 	color: #000000;
   }
+  .dark-mode .overal {
+    position: relative;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(./components/login3.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(50%); /* Adjust the percentage as needed */
+
+  }
+  .dark-mode .admin {
+    position: relative;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	background-image: url("./components/admin1.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(50%); /* Adjust the percentage as needed */
+	color: #000;
+
+  }
+
   .theme-switch__input {
 	display: none;
   }
@@ -466,4 +509,82 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Poppins', sans-serif;
+}
+.container-c{
+	background-color: #083d0a;
+}
+.likiliki{
+	background-color: #083d0a;
+}
+
+.container-c{
+	background-color: #083d0a;
+}
+.contact{
+	background-color: #083d0a;
+}
+.navigation{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 20px;
+	color: white;
+	background-color: #204128;
+	
+}
+.navigation button {
+	border-radius: 20px;
+	border: 1px solid #cfcfcf;
+	background-color:#204128;
+	color: white;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 4px 16px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.navigation  Link{
+	list-style: none;
+}
+.overal {
+    position: relative;
+}
+
+.overal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(./components/login3.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(50%); /* Adjust the percentage as needed */
+	filter: blur(1px);
+	-webkit-filter: blur(7px);
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
+
+.admin {
+    position: relative;
+}
+
+.admin::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	background-image: url("./components/admin1.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(50%); /* Adjust the percentage as needed */
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
 }

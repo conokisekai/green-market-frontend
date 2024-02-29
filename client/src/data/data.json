@@ -132,45 +132,46 @@
   ],
   "Team": [
     {
-      "img": "img/team/01.jpg",
+      "img": "img/team/black-guy4.jpg",
       "name": "John ",
       "job": "Director"
     },
     {
-      "img": "img/team/02.jpg",
+      "img": "img/team/black-guy3.jpg",
       "name": "Conrad",
       "job": "Senior Designer"
     },
     {
-      "img": "img/team/willy.jpg",
+      "img": "img/team/black-guy2.jpg",
       "name": "Willy",
       "job": "Senior Designer"
     },
     {
-      "img": "img/team/04.jpg",
+      "img": "img/team/black-guy5.jpg",
       "name": "Jim",
       "job": "Project Manager"
     },
     {
-      "img": "img/team/faith.jpg",
+      "img": "img/team/girl1.jpg",
       "name": "Faith ",
       "job": "Director"
     },
     {
-      "img": "img/team/02.jpg",
+      "img": "img/team/blackGuy6.jpg",
       "name": "Owen",
       "job": "Senior Designer"
     },
     {
-      "img": "img/team/03.jpg",
+      "img": "img/team/blackguy1.jpg",
       "name": "Amaar",
       "job": "Senior Designer"
     },
     {
-      "img": "img/team/khalid.jpg",
+      "img": "img/team/blackman7.jpg",
       "name": "Khalid",
       "job": "Project Manager"
     }
+
   ],
   "Contact": {
     "address": "Vedic Hse, 3rd Flr Moi Ave, 4994-00506 Nyayo Stadium.Nairobi",

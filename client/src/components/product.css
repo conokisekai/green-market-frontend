@@ -95,7 +95,7 @@ body {
 .box img {
   object-fit: cover;
   border-radius: 8px;
-  border-bottom-right-radius: 60px;
+  border-bottom-right-radius: 20px;
   height: 150px; /* Adjusted height */
   width: 100%;
 }

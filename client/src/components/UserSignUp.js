@@ -127,9 +127,8 @@ function UserSignUp({ setUserId ,setRole }) {
 
 
   return (
-    <>
+    <div className="overal">
 <div className="center-container">
-        <h1>AGRI-SOKO</h1>
       </div>
       <div className="container" id="container">
         <div className="form-container sign-up-container">
@@ -228,20 +227,20 @@ function UserSignUp({ setUserId ,setRole }) {
               <h1>Welcome Back!</h1>
               <p>To keep connected with us please login with your personal info</p>
               <button className="ghost" id="signIn" onClick={() => document.getElementById("container").classList.remove("right-panel-active")}>
-                Sign In
+                <button className="btn-9">Sign In</button>
               </button>
             </div>
             <div className="overlay-panel overlay-right">
               <h1>Hello, Friend!</h1>
               <p>Enter your personal details and start the journey with us</p>
               <button className="ghost" id="signUp" onClick={() => document.getElementById("container").classList.add("right-panel-active")}>
-                Sign Up
+                <button className="btn-9">Sign Up</button>
               </button>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -36,7 +36,7 @@ export const Contact = (props) => {
       );
   };
   return (
-    <div>
+    <div className="contact">
       <div id="contact">
         <div className="container-c">
           <div className="col-md-8">
@@ -48,7 +48,7 @@ export const Contact = (props) => {
                   In case of any inquiries reach us out via the filling the form
                 </p>
               </div>
-              <form name="sentMessage" validate onSubmit={handleSubmit}>
+              <form name="sentMessage" className="likiliki" validate onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">

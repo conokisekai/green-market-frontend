@@ -1,6 +1,6 @@
 /* Your Tailwind CSS converted to regular CSS */
 .navbard {
-    background-color: #1f29372a; /* Corresponds to bg-gray-800 in Tailwind */
+    background-color: #083d0a; /* Corresponds to bg-gray-800 in Tailwind */
     position:sticky;
     top: 0;
     left: 0;
@@ -17,7 +17,7 @@
     overflow: hidden;
   }
 
-nav {
+.navbard nav {
     background-color: #1f29372f; /* Corresponds to bg-gray-800 in Tailwind */
     position:sticky;
     top: 0;
@@ -33,7 +33,6 @@ nav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    font-style: italic;
   }
   
   nav a {

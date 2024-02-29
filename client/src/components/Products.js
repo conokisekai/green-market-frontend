@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -88,7 +89,10 @@ function Products() {
                     alt={product.product_name}
                     className="object-cover rounded-md border border-gray-300 h-48 w-full"
                   />
-                  <div className="des">{product.description}</div>
+                  <div className="des">
+                    {product.description}<br/>
+                    <b>Ksh:{product.price }</b>
+                    </div>
                 </div>
               </Link>
             ))}
