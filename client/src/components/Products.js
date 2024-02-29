@@ -152,11 +152,6 @@ function Products({ userId }) {
                     >
                       Add to Cart <FaShoppingCart className="ml-1" />
                     </button>
-                    {addedToCart && (
-                      <div className="added-to-cart-message text-green-600 mt-2">
-                        <FaShoppingCart className="inline-block mr-1" /> Added to Cart!
-                      </div>
-                    )}
                   </div>
                 </div>
                 </div>
