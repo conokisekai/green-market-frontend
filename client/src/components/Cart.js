@@ -72,17 +72,22 @@ function Cart({ userId }) {
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
               <h2 className="font-semibold text-2xl">{cartItems.length} Items</h2>
             </div>
-            <div className="flex mt-10 mb-5">
-              <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+            <div className=" flex mt-10 mb-5 text-lg ">
+            <h3 className="text-gray-600 text-lg uppercase w-2/5">Product Details</h3>
+              <h3 className="text-center text-gray-600 text-lg uppercase w-1/5 text-center">Price</h3>
+              <h3 className="text-center text-gray-600 text-lg uppercase w-1/5 text-center">Quantity</h3>
+              <h3 className="text-center text-gray-600 text-lg uppercase w-1/5 text-center">Total</h3>
             </div>
             {cartItems.map((cartItem) => (
               <div key={cartItem.product_id} className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                 <div className="flex w-2/5">
                   <div className="w-20">
-                    <img className="h-24" src={cartItem.image_link} alt={cartItem.product_name} />
+                  <img
+                    className="h-30 ml-4 mr-2 p-2 rounded-full"
+                    src={cartItem.image_link}
+                    alt={cartItem.product_name}
+                    style={{ width: '120px', height: '140%' }}
+                  />
                   </div>
                   <div className="flex flex-col justify-between ml-4 flex-grow">
                     <span className="font-bold text-sm">{cartItem.product_name}</span>

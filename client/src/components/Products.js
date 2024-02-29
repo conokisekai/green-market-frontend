@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import "./products.css";
 import Page from "./ThemeSwitch";
 
-function Products({ userId }) {
+function Products({ userId,role }) {
   const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
@@ -24,7 +24,7 @@ function Products({ userId }) {
       })
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
-
+console.log(role)
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
     if (searchTerm.trim() !== "") {
@@ -105,9 +105,15 @@ function Products({ userId }) {
         <div className="menu ml-11">
           <ul className="flex">
             <li className="mr-4">
-              <Link to="/cart">
-                <FaShoppingCart style={{ fontSize: "24px", color: "rgba(0, 0, 0, 0.514)" }} />
-              </Link>
+        {role === 'buyer' ? (
+          <Link to="/cart">
+             <FaShoppingCart style={{ fontSize: "24px", color: "rgba(0, 0, 0, 0.514)" }} />
+        </Link>
+        ) : (
+          <span onClick={() => alert("Sign in as a Buyer to purchase")}>
+               <FaShoppingCart style={{ fontSize: "24px", color: "rgba(0, 0, 0, 0.514)" }} />
+          </span>
+        )}
             </li>
           </ul>
         </div>

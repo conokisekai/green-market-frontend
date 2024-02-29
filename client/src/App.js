@@ -23,7 +23,7 @@ function App() {
   const [users,setUsers]=useState([])
   const [userId, setUserId] = useState(null);
   const [error, setError] = useState(null);
-  const[role,setRole]=useState("All");
+  const[role,setRole]=useState("");
   const [isDarkMode, setIsDarkMode] = useState(() => {
     // Retrieve dark mode preference from localStorage or use false as default
     const savedDarkMode = localStorage.getItem('darkMode');
@@ -61,12 +61,13 @@ function App() {
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
+  console.log(role)
   return (
     <div className={`page ${isDarkMode ? 'dark-mode' : ''}`}>
 
 
       <Router>
-        <Navbar/>
+        <Navbar role={role}/>
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="/usersignup" element={<UserSignUp setUserId={setUserId} setRole={setRole}/>} />

@@ -1,7 +1,12 @@
 .custom-container {
-    width: 75%; /* Equivalent to w-3/4 */ 
-    padding: 1.25rem; /* Equivalent to px-10 and py-10 */
-    margin: auto; /* Center the container horizontally */
+  width: 75%; /* Equivalent to w-3/4 */ 
+  padding: 1.25rem; /* Equivalent to px-10 and py-10 */
+  margin: auto;/* Center the container horizontally */
+
+}
+
+  .custom-container span{
+    font-size: 14px;
   }
 .cart-page{
   display: grid;
@@ -11,3 +16,20 @@
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
+.cart-page img{
+  padding: 8px;
+}
+/* .cart-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  position: relative;
+  overflow: hidden;
+  width: 750px;
+  max-width: 100%;
+  min-height: 600px;
+  height: 50%;
+  
+} */

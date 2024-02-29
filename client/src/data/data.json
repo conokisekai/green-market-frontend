@@ -67,37 +67,37 @@
   ],
   "Services": [
     {
-      "icon": "fa fa-wordpress",
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQCVTYk5c4imnAbNwo09unM8ePPtfmHtsk8w&usqp=CAU",
       "name": "fruits",
-      "text": "."
+      "text": ""
     },
     {
-      "icon": "fa fa-cart-arrow-down",
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRycK6zjL0wHHbASEwcGeazpXysjUs27Th1-w&usqp=CAU",
       "name": "livestocks",
-      "text": "."
+      "text": ""
     },
     {
-      "icon": "fa fa-cloud-download",
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHV_Y3aMTapyi_R43Gk8YyuiCc4xaG5-HS3g&usqp=CAU",
       "name": "vegetables",
       "text": ""
     },
     {
-      "icon": "fa fa-language",
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3wnAAGnIDSd2tmJEnsEFgIyWFvHwP8ynb4Q&usqp=CAU",
       "name": "meat and poultry",
       "text": ""
     },
     {
-      "icon": "fa fa-plane",
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_zSAUCTytcmDXF-MmnWrPO9iT0i6N9ufVDQ&usqp=CAU",
       "name": "flowers",
       "text": ""
-},
+    },
     {
-      "icon": "fa fa-pie-chart",
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSeRc0nY_Hks6zot6sgBnYx_ayA-6inagDSg&usqp=CAU",
       "name": "herbs",
       "text": ""
-      
     }
-  ],
+],
+
   "Testimonials": [
     {
       "img": "img/testimonials/farmer1.jpg",
