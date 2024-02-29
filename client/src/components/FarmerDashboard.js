@@ -10,7 +10,7 @@ function FarmerDashboard({ userId, users }) {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 12;
+  const productsPerPage = 15;
 
   useEffect(() => {
     fetch(`/get_product_user_id/${userId}`)
