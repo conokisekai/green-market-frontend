@@ -66,8 +66,8 @@ function Cart({ userId }) {
     <div className="cart-page">
     <div >
       <div className="container mx-auto mt-10">
-        <div className="flex shadow-md my-10">
-          <div className="custom-container">
+        <div>
+          <div >
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
               <h2 className="font-semibold text-2xl">{cartItems.length} Items</h2>
@@ -104,10 +104,9 @@ function Cart({ userId }) {
               </div>
             ))}
             <div className="flex font-semibold text-indigo-600 text-sm mt-10">
-              <Link to="/products">Continue Shopping</Link>
+              <button className="btn-9"><Link to="/products">Continue Shopping</Link></button>
             </div>
-          </div>
-          <div id="summary" className="w-1/3 px-8 py-10">
+            <div id="summary" className="w-1/3 px-8 py-10">
             <div className="details-in-container">
               <div className="details">
                 <div className="wrapper">
@@ -121,6 +120,7 @@ function Cart({ userId }) {
 
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

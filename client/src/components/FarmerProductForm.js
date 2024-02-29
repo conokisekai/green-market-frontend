@@ -137,7 +137,7 @@ function FarmerProductForm({userId}) {
                 required
               />
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="is_out_of_stock">OutOfStalk</label>
               <input
                 type="boolean"
@@ -146,7 +146,7 @@ function FarmerProductForm({userId}) {
                 onChange={(e) => setIs_out_of_stock(e.target.value)}
                 placeholder="True"
               />
-            </div>
+            </div> */}
             <div className="form-group">
               <label htmlFor="description">Description</label>
               <input

@@ -12,7 +12,7 @@ function Navbar({ role }) {
         <Link to="/">Home</Link>
         <Link to="/usersignup">Signup & Login</Link>
         <Link to="/products">Products</Link>
-        {role === 'seller' ? (
+        {role === 'Seller' ? (
           <Link to="/farmerdashboard">Seller dashboard</Link>
         ) : (
           <span onClick={() => alert("Sign in as a Seller to view or sign up to get a seller account only if you have products to sell")}>

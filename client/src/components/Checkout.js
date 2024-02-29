@@ -38,6 +38,9 @@ const Checkout = () => {
       const data = await response.json();
       console.log(data);
 
+      // Clear the form after successful submission
+      setPhone("");
+      setAmount("");
       setErrorMessage("");
     } catch (error) {
       console.error("Error:", error);
@@ -110,3 +113,4 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
