@@ -1,0 +1,57 @@
+#services {
+    padding: 60px 0;
+  }
+  
+  .container-s {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    margin-bottom: 60px;
+  }
+  
+  .section-title h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .col-md-4 {
+    width: calc(33.333% - 20px);
+    margin: 0 10px;
+    margin-bottom: 30px;
+  }
+  
+  .service-desc {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .service-desc h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .service-desc p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+.services p {
+    text-align: center;
+
+}

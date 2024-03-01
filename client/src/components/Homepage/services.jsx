@@ -1,4 +1,5 @@
 import React from "react";
+import './services.css'
 
 export const Services = (props) => {
   if (!props.data || !Array.isArray(props.data)) {
@@ -10,7 +11,7 @@ export const Services = (props) => {
   const secondRowData = props.data.slice(3, 6);
 
   return (
-    <div id="services" className="text-center">
+    <div id="services" className="services">
       <div className="container-s">
         <div className="section-title">
           <h2>Our Products</h2>
