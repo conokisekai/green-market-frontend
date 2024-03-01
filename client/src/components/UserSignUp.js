@@ -196,7 +196,7 @@ function UserSignUp({ setUserId ,setRole }) {
             </button>
           </form>
         </div>
-        <div className="form-container sign-in-container">
+        <div className="form-container sign-in-container text-white">
           <form onSubmit={handleSignInSubmit}>
             <h1>Sign in </h1>
             <input
@@ -214,6 +214,7 @@ function UserSignUp({ setUserId ,setRole }) {
             <button
               type="submit"
               className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              style={{ backgroundColor: 'white', color: 'black' }}
             >
               Sign In
             </button>
@@ -226,14 +227,26 @@ function UserSignUp({ setUserId ,setRole }) {
               <h1>Welcome Back!</h1>
               <p>To keep connected with us please login with your personal info</p>
               <button className="ghost" id="signIn" onClick={() => document.getElementById("container").classList.remove("right-panel-active")}>
-                <button className="btn-9">Sign In</button>
+              <button
+              type="submit"
+              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              style={{ backgroundColor: 'white', color: 'black' }}
+            >
+              Sign In
+            </button>
               </button>
             </div>
             <div className="overlay-panel overlay-right">
               <h1>Hello, Friend!</h1>
               <p>Enter your personal details and start the journey with us</p>
               <button className="ghost" id="signUp" onClick={() => document.getElementById("container").classList.add("right-panel-active")}>
-                <button className="btn-9">Sign Up</button>
+              <button
+              type="submit"
+              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              style={{ backgroundColor: 'white', color: 'black' }}
+            >
+              Sign Up
+            </button>
               </button>
             </div>
           </div>
