@@ -194,7 +194,6 @@ function UserSignUp({ setUserId ,setRole }) {
             >
               Sign Up
             </button>
-            <Link to="/resetpassword">Reset Password</Link>
           </form>
         </div>
         <div className="form-container sign-in-container">

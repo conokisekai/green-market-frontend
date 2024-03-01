@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import "./products.css";
 import Page from "./ThemeSwitch";
 
-function Products({ userId,role }) {
+function Products({ userId, role }) {
   const [isSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
@@ -14,6 +14,7 @@ function Products({ userId,role }) {
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
   const [productQuantities, setProductQuantities] = useState({});
+  const [customAlertVisible, setCustomAlertVisible] = useState(false);
   const productsPerPage = 15;
 
   useEffect(() => {
@@ -24,13 +25,16 @@ function Products({ userId,role }) {
       })
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
-console.log(role)
+  console.log(role);
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
     if (searchTerm.trim() !== "") {
-      const filteredProducts = products.filter((product) =>
-        product.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.category_name.toLowerCase().includes(searchTerm.toLowerCase())
+      const filteredProducts = products.filter(
+        (product) =>
+          product.product_name
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          product.category_name.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredProducts(filteredProducts);
     } else {
@@ -40,7 +44,12 @@ console.log(role)
   };
 
   const handleAddToCart = (product) => {
-    console.log("Adding to cart...", userId, product.product_id, productQuantities);
+    console.log(
+      "Adding to cart...",
+      userId,
+      product.product_id,
+      productQuantities
+    );
 
     const data = {
       user_id: userId,
@@ -75,13 +84,13 @@ console.log(role)
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = (searchTerm.trim() === "" ? products : filteredProducts).slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
+  const currentProducts = (
+    searchTerm.trim() === "" ? products : filteredProducts
+  ).slice(indexOfFirstProduct, indexOfLastProduct);
 
   const totalPages = Math.ceil(
-    (searchTerm.trim() === "" ? products.length : filteredProducts.length) / productsPerPage
+    (searchTerm.trim() === "" ? products.length : filteredProducts.length) /
+      productsPerPage
   );
 
   const handleNextPage = () => {
@@ -96,24 +105,36 @@ console.log(role)
     }
   };
 
+  const handleCustomAlert = () => {
+    setCustomAlertVisible(true);
+    setTimeout(() => {
+      setCustomAlertVisible(false);
+    }, 3000); // Change 3000 to the desired timeout in milliseconds
+  };
+
   return (
     <div className="products">
       <div className="top">
         <div className="search">
+          {/* Assuming SearchBar component is defined elsewhere */}
           <SearchBar onSearch={handleSearch} products={products} />
         </div>
         <div className="menu ml-11">
           <ul className="flex">
             <li className="mr-4">
-        {role === 'buyer' ? (
-          <Link to="/cart">
-             <FaShoppingCart style={{ fontSize: "24px", color: "rgba(0, 0, 0, 0.514)" }} />
-        </Link>
-        ) : (
-          <span onClick={() => alert("Sign in as a Buyer to purchase")}>
-               <FaShoppingCart style={{ fontSize: "24px", color: "rgba(0, 0, 0, 0.514)" }} />
-          </span>
-        )}
+              {role === "buyer" ? (
+                <Link to="/cart">
+                  <FaShoppingCart
+                    style={{ fontSize: "24px", color: "rgba(0, 0, 0, 0.514)" }}
+                  />
+                </Link>
+              ) : (
+                <span onClick={handleCustomAlert}>
+                  <FaShoppingCart
+                    style={{ fontSize: "24px", color: "rgba(0, 0, 0, 0.514)" }}
+                  />
+                </span>
+              )}
             </li>
           </ul>
         </div>
@@ -134,32 +155,41 @@ console.log(role)
                     />
                   </Link>
                   <div className="des">
-                  <div className="">
-                    {product.description}<br />
-                    <b>Ksh:{product.price}</b><br/>
-                    <b>Total: Ksh {product.price * (productQuantities[product.product_id] || 1)}</b>
+                    <div className="">
+                      {product.description}
+                      <br />
+                      <b>Ksh:{product.price}</b>
+                      <br />
+                      <b>
+                        Total: Ksh{" "}
+                        {product.price *
+                          (productQuantities[product.product_id] || 1)}
+                      </b>
+                    </div>
+                    <div className="cta">
+                      <label>
+                        Quantity:
+                        <input
+                          type="number"
+                          value={productQuantities[product.product_id] || 1}
+                          onChange={(e) =>
+                            handleQuantityChange(
+                              product.product_id,
+                              parseInt(e.target.value, 10) || 1
+                            )
+                          }
+                          min="1"
+                          className="border border-gray-300 px-2 py-1 mr-2"
+                        />
+                      </label>
+                      <button
+                        className="btn  text-white hover:bg-blue-600"
+                        onClick={() => handleAddToCart(product)}
+                      >
+                        Add to Cart <FaShoppingCart className="ml-1" />
+                      </button>
+                    </div>
                   </div>
-                  <div className="cta">
-                    <label>
-                      Quantity:
-                      <input
-                        type="number"
-                        value={productQuantities[product.product_id] || 1}
-                        onChange={(e) =>
-                          handleQuantityChange(product.product_id, parseInt(e.target.value, 10) || 1)
-                        }
-                        min="1"
-                        className="border border-gray-300 px-2 py-1 mr-2"
-                      />
-                    </label>
-                    <button
-                      className="btn  text-white hover:bg-blue-600"
-                      onClick={() => handleAddToCart(product)}
-                    >
-                      Add to Cart <FaShoppingCart className="ml-1" />
-                    </button>
-                  </div>
-                </div>
                 </div>
               </div>
             ))}
@@ -186,12 +216,16 @@ console.log(role)
           </div>
         </div>
       </div>
+      {customAlertVisible && (
+        <div id="custom-alert" className="custom-alert">
+          <h3>
+            Sign in as a Buyer to purchase
+          </h3>
+        </div>
+      )}
     </div>
   );
 }
-
-
-
 
 export default Products;
 

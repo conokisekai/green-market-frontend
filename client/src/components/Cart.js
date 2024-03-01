@@ -66,8 +66,8 @@ function Cart({ userId }) {
     <div className="cart-page">
     <div >
       <div className="container mx-auto mt-10">
-        <div>
-          <div >
+
+          <div className="custom-container">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
               <h2 className="font-semibold text-2xl">{cartItems.length} Items</h2>
@@ -103,29 +103,28 @@ function Cart({ userId }) {
                 />
               </div>
             ))}
-            <div className="flex font-semibold text-indigo-600 text-sm mt-10">
+              <div className="flex font-semibold text-indigo-600 text-sm mt-10">
               <button className="btn-9"><Link to="/products">Continue Shopping</Link></button>
             </div>
-            <div id="summary" className="w-1/3 px-8 py-10">
-            <div className="details-in-container">
-              <div className="details">
-                <div className="wrapper">
-                  <h3 className="font-semibold">YOUR TOTAL AMOUNT</h3>
-                  <p className="font-semibold"><b>Ksh {calculateTotalPrice()}</b></p>
-                  
-                </div>
-                <button className="btn-9 hover:bg-goldenrod-600 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm">
-                  <Link to="/checkout">Proceed to Payment</Link>
-                </button>
-
-              </div>
-            </div>
           </div>
+          <div id="summary" className="cont">
+            <div className="details-container">
+            <div className="details" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
+             <div className="wrapper">
+               <h3 className="font-semibold"style={{ fontSize: '14px' }}>TOTAL AMOUNT</h3>
+               <p className="font-semibold"style={{ fontSize: '22px' }}><b>Ksh {calculateTotalPrice()}</b></p>
+                            <button className="btn-9 hover:bg-goldenrod-600 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline text-sm">
+               <Link to="/checkout">Proceed to Payment</Link>
+             </button>
+             </div>
+
+           </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
+  
   );
 }
 
