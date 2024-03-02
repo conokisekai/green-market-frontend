@@ -9,7 +9,7 @@ export const Testimonials = (props) => {
   const rowData = props.data.slice(0, 6);
 
   return (
-    <div className="services-container" style={{ marginLeft: "10px" }}>
+    <div id="articles" className="services-container" style={{ marginLeft: "10px" }}>
       <div id="service" className="service" style={{ marginLeft: "-1cm", maxWidth:"1760px" }}>
         <div className="container-s">
           <div className="section-title">

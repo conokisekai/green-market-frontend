@@ -39,18 +39,18 @@ export const Navigation = (props) => {
               </a>
             </li>
             <li>
-              <a href="#services" className="page-scroll">
+              <a href="#products" className="page-scroll">
                 Our Products
               </a>
             </li>
             <li>
-              <a href="#portfolio" className="page-scroll">
-                services
+              <a href="#farms" className="page-scroll">
+              Our Farms
               </a>
             </li>
             <li>
-              <a href="#testimonials" className="page-scroll">
-                News
+              <a href="#articles" className="page-scroll">
+              Farm Articles
               </a>
             </li>
           
