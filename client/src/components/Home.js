@@ -5,12 +5,10 @@ import { About } from "./Homepage/about";
 import { Services } from "./Homepage/services";
 import { Gallery } from "./Homepage/gallery";
 import { Testimonials } from "./Homepage/testimonials";
-import { Team } from "./Homepage/Team";
 import { Contact } from "./Homepage/contact";
 import JsonData from "../data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./homex.css";
-import Footer from "./Footer";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -25,14 +23,23 @@ const Home= () => {
   }, []);
 
   return (
-    <div className="home">
+    <div className="home" 
+    style={{ 
+      display: "flex", 
+      flexDirection: "column", 
+      justifyContent: "center", 
+      alignItems: "center",
+      minHeight: "100vh", // Make sure it covers at least the full viewport height
+      width: "100%", // Set to cover 80% of the screen width
+      margin: "auto", // Center the content horizontally
+    }}
+    >
       <Navigation />
       <Header data={landingPageData.Header} />
       <About data={landingPageData.About} />
       <Services data={landingPageData.Services} />
       <Gallery data={landingPageData.Gallery} />
       <Testimonials data={landingPageData.Testimonials} />
-      <Team data={landingPageData.Team} />
       <Contact data={landingPageData.Contact} />
     </div>
   );

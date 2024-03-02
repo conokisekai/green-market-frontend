@@ -66,3 +66,58 @@ function App() {
 
 export default App;
 
+// // OTPVerification.jsx
+
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+
+// function OTPVerification({ setIsOtpCorrect, otpRequestId, userData }) {
+//   const [enteredOtp, setEnteredOtp] = useState('');
+//   const navigate = useNavigate();
+
+//   const handleOTPSubmit = async (e) => {
+//     e.preventDefault();
+
+//     try {
+//       const response = await fetch("/notify_otp", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//           otp_request_id: otpRequestId,
+//           entered_otp: enteredOtp,
+//         }),
+//       });
+
+//       if (response.ok) {
+//         const data = await response.json();
+
+//         if (data.is_otp_correct) {
+//           setIsOtpCorrect(true);
+
+//           // Redirect to UserSignUp page after OTP is correct
+//           navigate("/usersignup");
+//         } else {
+//           console.error("Incorrect OTP");
+//         }
+//       } else {
+//         console.error("Server Error:", response.statusText);
+//       }
+//     } catch (error) {
+//       console.error("Client Error:", error);
+//     }
+//   };
+
+//   return (
+//     <div className="container">
+//       <form onSubmit={handleOTPSubmit}>
+//         <h1>Enter OTP</h1>
+//         <input type="text" value={enteredOtp} onChange={(e) => setEnteredOtp(e.target.value)} />
+//         <button type="submit">Verify OTP</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default OTPVerification;

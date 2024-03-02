@@ -426,7 +426,7 @@ body {
   .dark-mode span{ 
 	color:#f3f0f0;
   }
-  .dark-mode .boxfarmer button{
+  .dark-mode .farmerdashboard button{
 	background-color: #eb3b3b3d;
 	border: 2px solid rgba(128, 0, 0, 0.918);
 	background: linear-gradient(to right, rgba(253, 42, 27, 0.1) 1%, transparent 40%,transparent 60% , rgba(253, 72, 27, 0.1) 100%);
@@ -509,29 +509,41 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Poppins', sans-serif;
+	background-color: #204127;
 }
 .container-c{
-	background-color: #083d0a;
+	background-color:#204127;
 }
 .likiliki{
-	background-color: #083d0a;
+	background-color:#204127;
 }
 
 .container-c{
-	background-color: #083d0a;
+	background-color: #204127;
+}
+#contact{
+	background-color:#204127;
 }
 .contact{
-	background-color: #083d0a;
+	background-color:#204127;
 }
 .navigation{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
-	margin-right: 20px;
+	/* margin-right: 20px; */
 	color: white;
 	background-color: #204128;
 	
 }
+/* .navix{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-right: 20px;
+	color: white;
+	background-color: #204128;
+} */
 .navigation button {
 	border-radius: 20px;
 	border: 1px solid #cfcfcf;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 function Newpass({ email, onClose }) {
   const [token, setToken] = useState("");
@@ -49,7 +48,7 @@ function Newpass({ email, onClose }) {
               className="text-gray-600 hover:text-gray-800"
               onClick={onClose}
             >
-              <Link to="/usersignup">Close</Link>
+              Close
             </button>
           </div>
           <form onSubmit={handleSubmit}>

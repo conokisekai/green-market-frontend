@@ -1,10 +1,12 @@
-#services {
+#service {
     padding: 60px 0;
+    color: white;
   }
   
   .container-s {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
+    
   }
   
   .section-title {
@@ -14,7 +16,7 @@
   .section-title h2 {
     font-size: 36px;
     font-weight: 700;
-    color: #333;
+    color:white;
   }
   
   .row {
@@ -25,8 +27,9 @@
   
   .col-md-4 {
     width: calc(33.333% - 20px);
-    margin: 0 10px;
-    margin-bottom: 30px;
+    margin: 10px 10px;
+    margin-bottom: 20px;
+
   }
   
   .service-desc {
@@ -37,21 +40,30 @@
   .service-desc h3 {
     font-size: 24px;
     margin-bottom: 15px;
+    color:white;
   }
   
   .service-desc p {
     font-size: 16px;
-    color: #666;
+    color: white;
   }
   
   img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-left: 3px;
   }
 
-.services p {
+.service p {
     text-align: center;
 
 }
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Add padding as needed */
+
+}
+

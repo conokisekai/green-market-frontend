@@ -15,7 +15,7 @@ function Products({ userId, role }) {
   const [addedToCart, setAddedToCart] = useState(false);
   const [productQuantities, setProductQuantities] = useState({});
   const [customAlertVisible, setCustomAlertVisible] = useState(false);
-  const productsPerPage = 15;
+  const productsPerPage = 12;
 
   useEffect(() => {
     fetch("/get_all_products")
@@ -143,7 +143,7 @@ function Products({ userId, role }) {
         <div className="sideContainer"></div>
         <div className={`icerik ${isSidebarOpen ? "" : "small"}`}>
           <div className="ust"></div>
-          <div className="grid grid-cols-5 gap-3 p-4">
+          <div className="grid grid-cols-4 gap-3 p-4">
             {currentProducts.map((product) => (
               <div key={product.product_id}>
                 <div className="boxy">

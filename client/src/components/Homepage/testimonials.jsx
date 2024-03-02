@@ -1,29 +1,31 @@
 import React from "react";
+import './services.css';
 
 export const Testimonials = (props) => {
+  if (!props.data || !Array.isArray(props.data)) {
+    return <div>No data available</div>;
+  }
+
+  const rowData = props.data.slice(0, 6);
+
   return (
-    <div id="testimonials">
-      <div className="container-t">
-        <div className="section-title text-center">
-          <h2>What our clients say</h2>
-        </div>
-        <div className="row">
-          {props.data
-            ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-4">
-                  <div className="testimonial">
-                    <div className="testimonial-image">
-                      {" "}
-                      <img src={d.img} alt="" />{" "}
-                    </div>
-                    <div className="testimonial-content">
-                      <p>"{d.text}"</p>
-                      <div className="testimonial-meta"> - {d.name} </div>
-                    </div>
-                  </div>
+    <div className="services-container" style={{ marginLeft: "10px" }}>
+      <div id="service" className="service" style={{ marginLeft: "-1cm", maxWidth:"1760px" }}>
+        <div className="container-s">
+          <div className="section-title">
+            <h2>Farm Articles</h2>
+          </div>
+          <div className="row justify-content-center">
+            {rowData.map((d, i) => (
+              <div key={`${d.name}-${i}`} className="col-md-3 d-flex justify-content-center" style={{ padding: "10px" }}> {/* Add padding */}
+                <img src={d.image_link} alt={d.name} style={{ maxWidth: '100%', height: '60%'}} />
+                <div className="service-desc">
+                  <h3>{d.name}</h3>
+                  <p>{d.text}</p>
                 </div>
-              ))
-            : "loading"}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

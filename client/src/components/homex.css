@@ -1,41 +1,58 @@
 @media screen and (max-width: 200px) {
-    #features {
-      padding: 20px;
-      width: 50%;
-    }
-    #about,
-    #services,
-    #testimonials,
-    #team,
-    #contact,
-    #footer {
-      width: 50%;
-    }
-  
-    #portfolio {
-      width: 50%;
-    }
+  #features {
+    padding: 20px;
+    width: 50%;
   }
-.homex{
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  #about,
+  #services,
+  #testimonials,
+  #team,
+  #contact{
+  background-color:  #204127;
+  }
+  #footer {
+    width: 50%;
   }
 
-.homex code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  #portfolio {
+    width: 50%;
+  }
+}
+.homex{
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.container-h{
-  background-image: url("../components/intro3.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 100vw;
-  height: 100vh;
+.homex code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+.home{
+background-color: #204127;
+}
+.container-h {
+display: flex;
+justify-content: center;
+align-items: center;
+background-image: url("../components/intro3.jpg");
+background-size: center;
+background-repeat: no-repeat;
+background-position: center center;
+width: 100vw;
+height: 100vh;
+margin-left: 10px;
+margin-right: 5px;
+padding-bottom: -2cm;
+}
+.contact2{
+  display: flex;
+  flex-direction: row;
+}
 
+.home img{
+  border-radius: 8px;
 }

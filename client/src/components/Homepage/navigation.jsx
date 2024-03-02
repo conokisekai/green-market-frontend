@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Navigation = (props) => {
   return (
-    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+    <nav id="menu" className="navbar navbar-default navbar-fixed-top" style={{ display: 'flex', justifyContent: 'space-around' }}>
       <div className="navigation">
         <div className="first">
           <button
@@ -27,7 +27,7 @@ export const Navigation = (props) => {
           className="collapse navbar-collapse "
           id="bs-example-navbar-collapse-1"
         >
-          <ul className="nav navbar-nav navbar-right">
+          <ul className="nav navbar-nav navbar-centre">
             <li>
               <a href="#features" className="page-scroll">
                 Home
@@ -53,11 +53,7 @@ export const Navigation = (props) => {
                 News
               </a>
             </li>
-            <li>
-              <a href="#team" className="page-scroll">
-                Team
-              </a>
-            </li>
+          
             <li>
               <a href="#contact" className="page-scroll">
                 Contact

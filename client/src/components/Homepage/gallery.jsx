@@ -1,23 +1,30 @@
-import { Image } from "../image";
 import React from "react";
+import './services.css';
 
 export const Gallery = (props) => {
+  if (!props.data || !Array.isArray(props.data)) {
+    return <div>No data available</div>;
+  }
+
+  const rowData = props.data.slice(0, 6);
+
   return (
-    <div id="portfolio" className="text-center">
-      <div className="container-g">
-        <div className="section-title">
-          <h2>Services</h2>
-          <p>
-            our products and produces.
-          </p>
-        </div>
-        <div className="row">
-          <div className="portfolio-items">
-          "Agrisoko helps me find good food from farmers. I buy fresh fruits and vegetables easily."<br/>
-          "I use Agrisoko to talk to farmers and buy fresh food. It's simple and good."<br/>
-          "Agrisoko makes it easy to buy food. I order and it comes to me on time."<br/>
-          "I like Agrisoko because it tells me where my food comes from. I trust it."<br/>
-          "Buying food with Agrisoko is easy. I get what I need quickly and it's fresh."
+    <div className="services-container" style={{ marginLeft: "10px" }}>
+      <div id="service" className="service" style={{ marginLeft: "-0.1cm", maxWidth:"1760px" }}>
+        <div className="container-s">
+          <div className="section-title">
+            <h2>Our Farms</h2>
+          </div>
+          <div className="row justify-content-center">
+            {rowData.map((d, i) => (
+              <div key={`${d.name}-${i}`} className="col-md-3 d-flex justify-content-center" style={{ padding: "100px" }}> {/* Add padding */}
+                <img src={d.image_link} alt={d.name} style={{ maxWidth: '100%', height: '60%' }} />
+                <div className="service-desc">
+                  <h3>{d.name}</h3>
+                  <p>{d.text}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

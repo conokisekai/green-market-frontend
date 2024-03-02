@@ -14,118 +14,77 @@
      
     ]
   },
+
   "Gallery": [
     {
-      "title": "Project Title",
-      "largeImage": "img/ortfolio/01-l",
-      "smallImage": "img/portfolio/0"
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6YDGeDo6AYPxoLbKO-xpqXFDubMgBIICS0A&usqp=CAU",
+      "name": "",
+      "text": ""
     },
     {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/02-lg",
-      "smallImage": "img/portfolio/02-s.jpg"
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxncgi6vWttkjQHDmUBCr2oxzQHQmzGoWi8g&usqp=CAU",
+      "name": "",
+      "text": ""
     },
     {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/0arge.jpg",
-      "smallImage": "img/portfolio/mall.jpg"
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPP547r4t6l8hKEPL1Zi7Cf1KG2Ycr_FxWHw&usqp=CAU",
+      "name": "",
+      "text": ""
     },
     {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/0arge.jpg",
-      "smallImage": "img/portfolio/mall.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/05ge.jpg",
-      "smallImage": "img/portfolio/05-sll.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/06-lge.jpg",
-      "smallImage": "img/portfolio/06all.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/07-ge.jpg",
-      "smallImage": "img/portfolio/07-ll.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/08rge.jpg",
-      "smallImage": "img/portfolio/0mall.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/09-l e.jpg",
-      "smallImage": "img/portfolio/09-ll.jpg"
+      "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvdnC4PQ-Etjd3rB3XgMSC0xdUK9pWubzIdQ&usqp=CAU",
+      "name": "",
+      "text": ""
     }
-  ],
+],
+"Testimonials":[
+  {
+    "name": "COWS",
+    "image_link": "https://static.wixstatic.com/media/a84228_34797c27932b418490d44c23094c2132~mv2.jpeg/v1/fill/w_489,h_366,al_c,q_80,usm_1.20_1.00_0.01,enc_auto/Brown%20Ayrshire%20cows%20grazing%20in%20a%20green%20field%20on%20Gloucester%20Vale%20Farm%20in%20Kenya.jpeg"
+  },
+  {
+    "name": "FARM MACHINERY",
+    "image_link": "https://modernfarmer.com/wp-content/uploads/2022/05/shutterstock_517244548.jpg"
+  },
+  {
+    "name": "GREEN HOUSE",
+    "image_link": "https://prod.cdn-medias.theafricareport.com/cdn-cgi/image/q=auto,f=auto,metadata=none,width=732,height=419,fit=cover/https://prod.cdn-medias.theafricareport.com/medias/2024/01/26/secondsky-e1706518729298.jpg"
+  }
+],
+
   "Services": [
     {
       "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQCVTYk5c4imnAbNwo09unM8ePPtfmHtsk8w&usqp=CAU",
-      "name": "fruits",
+      "name": "FRUITS",
       "text": ""
     },
     {
       "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRycK6zjL0wHHbASEwcGeazpXysjUs27Th1-w&usqp=CAU",
-      "name": "livestocks",
+      "name": "LIVESTOCKS",
       "text": ""
     },
     {
       "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHV_Y3aMTapyi_R43Gk8YyuiCc4xaG5-HS3g&usqp=CAU",
-      "name": "vegetables",
+      "name": "VEGETABLES",
       "text": ""
     },
     {
       "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3wnAAGnIDSd2tmJEnsEFgIyWFvHwP8ynb4Q&usqp=CAU",
-      "name": "meat and poultry",
+      "name": "MEAT AND POULTRY",
       "text": ""
     },
     {
       "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_zSAUCTytcmDXF-MmnWrPO9iT0i6N9ufVDQ&usqp=CAU",
-      "name": "flowers",
+      "name": "FLOWERS",
       "text": ""
     },
     {
       "image_link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSeRc0nY_Hks6zot6sgBnYx_ayA-6inagDSg&usqp=CAU",
-      "name": "herbs",
+      "name": "HERBS",
       "text": ""
     }
 ],
 
-  "Testimonials": [
-    {
-      "img": "img/testimonials/farmer1.jpg",
-      "text": "Agrisoko helps me find good food from farmers. I buy fresh fruits and vegetables easily.",
-      "name": "Pricilla Wamboi"
-    },
-    {
-      "img": "img/testimonials/farmer2.jpg",
-      "text": "Buying food with Agrisoko is easy. I get what I need quickly and it's fresh",
-      "name": "Selina Jepkorir"
-    },
-    {
-      "img": "img/testimonials/farmer3.jpg",
-      "text": "I like Agrisoko because it tells me where my food comes from. I trust it",
-      "name": "Joe Odwar"
-    },
-    {
-      "img": "img/testimonials/farmer4.jpg",
-      "text": " Agrisoko makes it easy to buy food. I order and it comes to me on time.",
-      "name": "Oscar Kyalo "
-    },
-    {
-      "img": "img/testimonials/farmer5.jpg",
-      "text": "I use Agrisoko to talk to farmers and buy fresh food. It's simple and good",
-      "name": "Angie Njoki "
-    },
-    {
-      "img": "img/testimonials/farmer6.jpg",
-      "text": "",
-      "name": "Adrian Efen "
-    }
-  ],
   "Team": [
     {
       "img": "img/team/black-guy4.jpg",
@@ -200,3 +159,4 @@
     }
   ]
 }
+

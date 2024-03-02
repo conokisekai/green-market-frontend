@@ -36,7 +36,7 @@ export const Contact = (props) => {
       );
   };
   return (
-    <div className="contact">
+    <div className="contact1" style={{ marginLeft: "-0.4cm", maxWidth:"1600px" }}>
       <div id="contact">
         <div className="container-c">
           <div className="col-md-8">
@@ -127,29 +127,7 @@ export const Contact = (props) => {
               </p>
             </div>
           </div>
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
-                <ul>
-                  <li>
-                    <a href={props.data ? props.data.facebook : "/"}>
-                      <i className="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.twitter : "/"}>
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.youtube : "/"}>
-                      <i className="fa fa-youtube"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
